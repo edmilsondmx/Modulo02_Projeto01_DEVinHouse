@@ -97,3 +97,9 @@ C:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEV
 C:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\devcar-tests\obj\Debug\net6.0\devcar-tests.pdb
 C:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\devcar-tests\obj\Debug\net6.0\devcar-tests.genruntimeconfig.cache
 C:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\devcar-tests\obj\Debug\net6.0\ref\devcar-tests.dll
+C:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\devcar-tests\bin\Debug\net6.0\CoverletSourceRootsMapping
+C:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\devcar-tests\bin\Debug\net6.0\DevCarConsole.deps.json
+C:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\devcar-tests\bin\Debug\net6.0\DevCarConsole.runtimeconfig.json
+C:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\devcar-tests\bin\Debug\net6.0\DevCarConsole.exe
+C:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\devcar-tests\bin\Debug\net6.0\DevCarConsole.dll
+C:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\devcar-tests\bin\Debug\net6.0\DevCarConsole.pdb

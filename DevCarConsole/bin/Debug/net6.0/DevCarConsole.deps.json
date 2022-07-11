@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "DevCarConsole/1.0.0": {
+        "runtime": {
+          "DevCarConsole.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DevCarConsole/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

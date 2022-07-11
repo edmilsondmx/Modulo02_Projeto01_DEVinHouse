@@ -1,0 +1,15 @@
+c:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\DevCarConsole\obj\Debug\net6.0\DevCarConsole.csproj.AssemblyReference.cache
+c:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\DevCarConsole\obj\Debug\net6.0\DevCarConsole.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\DevCarConsole\obj\Debug\net6.0\DevCarConsole.AssemblyInfoInputs.cache
+c:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\DevCarConsole\obj\Debug\net6.0\DevCarConsole.AssemblyInfo.cs
+c:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\DevCarConsole\obj\Debug\net6.0\DevCarConsole.csproj.CoreCompileInputs.cache
+C:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\DevCarConsole\bin\Debug\net6.0\DevCarConsole.exe
+C:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\DevCarConsole\bin\Debug\net6.0\DevCarConsole.deps.json
+C:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\DevCarConsole\bin\Debug\net6.0\DevCarConsole.runtimeconfig.json
+C:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\DevCarConsole\bin\Debug\net6.0\DevCarConsole.dll
+C:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\DevCarConsole\bin\Debug\net6.0\DevCarConsole.pdb
+C:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\DevCarConsole\obj\Debug\net6.0\DevCarConsole.dll
+C:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\DevCarConsole\obj\Debug\net6.0\refint\DevCarConsole.dll
+C:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\DevCarConsole\obj\Debug\net6.0\DevCarConsole.pdb
+C:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\DevCarConsole\obj\Debug\net6.0\DevCarConsole.genruntimeconfig.cache
+C:\Users\Edmilson\Documents\DevinHouse\Módulo 2\Projetos\Modulo02_Projeto01_DEVinHouse\DevCarConsole\obj\Debug\net6.0\ref\DevCarConsole.dll
