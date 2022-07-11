@@ -24,6 +24,15 @@ public class Veiculo
         CpfComprador = "0";
         Cor = cor;
     }
+    public Veiculo(DateTime dataFabricacao, string? nome, string? placa, decimal valor)
+    {
+        NumChassi = Guid.NewGuid().ToString().Substring(0,18);
+        DataFabricacao = dataFabricacao;
+        Nome = nome;
+        Placa = placa;
+        Valor = valor;
+        CpfComprador = "0";
+    }
 
     public void VenderVeículo(string? cpfComprador, decimal valor)
     {
