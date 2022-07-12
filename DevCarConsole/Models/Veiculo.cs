@@ -2,13 +2,14 @@ namespace DevCarConsole.Models;
 
 public class Veiculo
 {
-    public string? NumChassi { get; set; }
+    private protected string? NumChassi { get; set; }
     public DateTime DataFabricacao { get; set; }
     public string? Nome { get; set; }
     public string? Placa { get; set; }
     public decimal Valor { get; set; }
-    public string? CpfComprador { get; set; }
+    private protected int? CpfComprador { get; set; }
     public string? Cor { get; set; }
+    public decimal ValorVenda { get; set; }
 
     public Veiculo()
     {
@@ -21,7 +22,6 @@ public class Veiculo
         Nome = nome;
         Placa = placa;
         Valor = valor;
-        CpfComprador = "0";
         Cor = cor;
     }
     public Veiculo(DateTime dataFabricacao, string? nome, string? placa, decimal valor)
@@ -31,20 +31,19 @@ public class Veiculo
         Nome = nome;
         Placa = placa;
         Valor = valor;
-        CpfComprador = "0";
     }
 
-    public void VenderVeículo(string? cpfComprador, decimal valor)
+    public void VenderVeículo(int cpfComprador, decimal valorVenda)
     {
         CpfComprador = cpfComprador;
-        Valor = valor;
+        ValorVenda = valorVenda;
     }
 
-    public void ListarInformacoes()
+    public string ListarInformacoes()
     {
-
+        return "";
     }
-    public void AlterarInformacoes(decimal valor, string? cor)
+    public virtual void AlterarInformacoes(decimal valor, string? cor)
     {
         Valor = valor;
         Cor = cor;

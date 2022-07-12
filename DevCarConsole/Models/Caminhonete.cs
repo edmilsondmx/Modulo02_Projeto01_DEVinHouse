@@ -20,4 +20,12 @@ public class Caminhonete : Veiculo
         Potencia = potencia;
         Combustivel = combustivel;
     }
+
+    public override void AlterarInformacoes(decimal valor, string? cor)
+    {
+        if(cor != "roxo")
+            System.Console.WriteLine("Fabricamos apenas caminhonetes na cor Roxa");
+        Cor = "Roxo";
+        Valor = valor;
+    }
 }
