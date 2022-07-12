@@ -1,8 +1,10 @@
+using DevCarConsole.Repositories;
+
 namespace DevCarConsole.Screens;
 
 public class VendidosScreen
 {
-    public static void Iniciar()
+    public static void Iniciar(VeiculoRepository repository)
     {
         Console.Clear();
         MenuScreen.Bordas();
@@ -14,7 +16,7 @@ public class VendidosScreen
             case 1: break;
             case 2: break;
             case 3: break;
-            case 0: MenuScreen.Iniciar(); break;
+            case 0: MenuScreen.Iniciar(repository); break;
             default: break;
         }
 

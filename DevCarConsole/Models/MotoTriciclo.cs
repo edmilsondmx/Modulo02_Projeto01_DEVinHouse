@@ -2,7 +2,6 @@ namespace DevCarConsole.Models;
 
 public class MotoTriciclo : Veiculo
 {
-    public string? Categoria { get; set; }
     public string? Potencia { get; set; }
     public string? QuantidadeRodas { get; set; }
     public MotoTriciclo()
@@ -14,5 +13,13 @@ public class MotoTriciclo : Veiculo
         Categoria = "Moto / Triciclo";
         Potencia = potencia;
         QuantidadeRodas = qtdRodas;
+    }
+
+    public override string ToString()
+    {
+        Console.ForegroundColor = ConsoleColor.White;
+
+        return $@"Veículo: {Nome?.ToUpper()} | Cor: {char.ToUpper(Cor![0]) + Cor.Substring(1)} | Placa: {Placa?.ToUpper()} | Valor: {Valor.ToString("c")}
+Data Fabricação: {DataFabricacao.ToString("d")} | Chassi: {NumChassi?.ToUpper()} | Potencia: {Potencia}cv | Quantidade de rodas: {QuantidadeRodas}";
     }
 }

@@ -2,7 +2,6 @@ namespace DevCarConsole.Models;
 
 public class Caminhonete : Veiculo
 {
-    public string? Categoria { get; set; }
     public string? TotalPortas { get; set; }
     public string? CapacidadeCacamba { get; set; } // Em Litros
     public string? Potencia { get; set; } //Cavalos
@@ -27,5 +26,13 @@ public class Caminhonete : Veiculo
             System.Console.WriteLine("Fabricamos apenas caminhonetes na cor Roxa");
         Cor = "Roxo";
         Valor = valor;
+    }
+
+    public override string ToString()
+    {
+        Console.ForegroundColor = ConsoleColor.White;
+
+        return $@"Veículo: {Nome?.ToUpper()} | Cor: {char.ToUpper(Cor![0]) + Cor.Substring(1)} | Placa: {Placa?.ToUpper()} | Valor: {Valor.ToString("c")} | Data Fabricação: {DataFabricacao.ToString("d")} 
+Chassi: {NumChassi?.ToUpper()} | Potencia: {Potencia}cv | Quantidade de Portas: {TotalPortas} | Litragem Caçamba: {CapacidadeCacamba}lt | Combustível: {char.ToUpper(Combustivel![0]) + Combustivel.Substring(1)}";
     }
 }

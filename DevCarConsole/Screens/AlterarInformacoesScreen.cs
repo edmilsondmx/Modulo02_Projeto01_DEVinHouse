@@ -1,8 +1,9 @@
+using DevCarConsole.Repositories;
 namespace DevCarConsole.Screens;
 
 public class AlterarInformacoesScreen
 {
-    public static void Iniciar()
+    public static void Iniciar(VeiculoRepository repository)
     {
         Console.Clear();
         MenuScreen.Bordas();
@@ -12,7 +13,7 @@ public class AlterarInformacoesScreen
 
         if(opcoes == "0")
         {
-            MenuScreen.Iniciar();
+            MenuScreen.Iniciar(repository);
         }
 
 

@@ -2,7 +2,6 @@ namespace DevCarConsole.Models;
 
 public class Carro : Veiculo
 {
-    public string? Categoria { get; set; }
     public string? TotalPortas { get; set; }
     public string? Combustivel { get; set; }
     public string? Potencia { get; set; }
@@ -16,5 +15,13 @@ public class Carro : Veiculo
         TotalPortas = totalPortas;
         Combustivel = combustivel;
         Potencia = potencia;
+    }
+
+    public override string ToString()
+    {
+        Console.ForegroundColor = ConsoleColor.White;
+        
+        return $@"Veículo: {Nome?.ToUpper()} | Cor: {char.ToUpper(Cor![0]) + Cor.Substring(1)} | Placa: {Placa?.ToUpper()} | Valor: {Valor.ToString("c")} | Data Fabricação: {DataFabricacao.ToString("d")} 
+Chassi: {NumChassi?.ToUpper()} | Potencia: {Potencia}cv | Quantidade de Portas: {TotalPortas} | Combustível: {char.ToUpper(Combustivel![0]) + Combustivel.Substring(1)}";
     }
 }

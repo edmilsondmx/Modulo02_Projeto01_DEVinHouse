@@ -1,8 +1,10 @@
+using DevCarConsole.Repositories;
+using DevCarConsole.Models;
 namespace DevCarConsole.Screens;
 
 public class CadastrarVeiculoScreen
 {
-    public static void Iniciar()
+    public static void Iniciar(VeiculoRepository repository)
     {
         Console.Clear();
         MenuScreen.Bordas();
@@ -11,10 +13,10 @@ public class CadastrarVeiculoScreen
         var opcoes = short.Parse(Console.ReadLine()!);
         switch (opcoes)
         {
-            case 1: MotoTriciclo(); break;
-            case 2: CarroPasseio(); break;
-            case 3: Caminhonete(); break;
-            case 0: MenuScreen.Iniciar(); break;
+            case 1: MotoTriciclo(repository); break;
+            case 2: CarroPasseio(repository); break;
+            case 3: Caminhonete(repository); break;
+            case 0: MenuScreen.Iniciar(repository); break;
             default: break;
         }
 
@@ -46,7 +48,7 @@ public class CadastrarVeiculoScreen
 
     }
 
-    static void MotoTriciclo()
+    static void MotoTriciclo(VeiculoRepository repository)
     {
         Console.Clear();
         MenuScreen.Bordas();
@@ -84,22 +86,23 @@ public class CadastrarVeiculoScreen
         System.Console.Write("Quantidade de Rodas: ");
         string qtdRodas = Console.ReadLine()!;
 
-        string chassi = Guid.NewGuid().ToString().Substring(0,18);
+        repository.ListaDeVeiculos.Add(new MotoTriciclo(dataFabricacao, marcaModelo, placa, valor, cor, potencia, qtdRodas));
 
         Console.Clear();
+        System.Console.WriteLine("Produto Cadastrado com sucesso!");
         System.Console.WriteLine("=================================================================================");
         System.Console.WriteLine($@"Veículo: {marcaModelo?.ToUpper()} | Cor: {char.ToUpper(cor[0]) + cor.Substring(1)} | Placa: {placa?.ToUpper()} | Valor: {valor.ToString("c")}
-Data Fabricação: {dataFabricacao.ToString("d")} | Chassi: {chassi?.ToUpper()} | Potencia: {potencia}cv | Quantidade de rodas: {qtdRodas}");
+Data Fabricação: {dataFabricacao.ToString("d")} | Potencia: {potencia}cv | Quantidade de rodas: {qtdRodas}");
         System.Console.WriteLine("=================================================================================");
 
         System.Console.Write(Environment.NewLine);
         System.Console.WriteLine("Pressione ENTER para voltar ao Menu Principal");
 
         Console.ReadLine();
-        Iniciar();
+        Iniciar(repository);
     }
 
-    static void CarroPasseio()
+    static void CarroPasseio(VeiculoRepository repository)
     {
         Console.Clear();
         MenuScreen.Bordas();
@@ -141,23 +144,23 @@ Data Fabricação: {dataFabricacao.ToString("d")} | Chassi: {chassi?.ToUpper()} 
         System.Console.Write("Potência: ");
         string potencia = Console.ReadLine()!;
 
-
-        string chassi = Guid.NewGuid().ToString().Substring(0,18);
+        repository.ListaDeVeiculos.Add(new Carro(dataFabricacao, marcaModelo, placa, valor, cor, qtdPortas, combustivel, potencia));
 
         Console.Clear();
+        System.Console.WriteLine("Produto Cadastrado com sucesso!");
         System.Console.WriteLine("=================================================================================");
         System.Console.WriteLine($@"Veículo: {marcaModelo?.ToUpper()} | Cor: {char.ToUpper(cor[0]) + cor.Substring(1)} | Placa: {placa?.ToUpper()} | Valor: {valor.ToString("c")} | Data Fabricação: {dataFabricacao.ToString("d")} 
-Chassi: {chassi?.ToUpper()} | Potencia: {potencia}cv | Quantidade de Portas: {qtdPortas} | Combustível: {char.ToUpper(combustivel[0]) + combustivel.Substring(1)}");
+Potencia: {potencia}cv | Quantidade de Portas: {qtdPortas} | Combustível: {char.ToUpper(combustivel[0]) + combustivel.Substring(1)}");
         System.Console.WriteLine("=================================================================================");
 
         System.Console.Write(Environment.NewLine);
         System.Console.WriteLine("Pressione ENTER para voltar ao Menu Principal");
 
         Console.ReadLine();
-        Iniciar();
+        Iniciar(repository);
     }
 
-    static void Caminhonete()
+    static void Caminhonete(VeiculoRepository repository)
     {
         Console.Clear();
         MenuScreen.Bordas();
@@ -199,21 +202,20 @@ Chassi: {chassi?.ToUpper()} | Potencia: {potencia}cv | Quantidade de Portas: {qt
         System.Console.Write("Combustível: ");
         string combustivel = Console.ReadLine()!;
 
-        string chassi = Guid.NewGuid().ToString().Substring(0,18);
-
-        string cor = "Roxo";
+        repository.ListaDeVeiculos.Add(new Caminhonete(dataFabricacao, marcaModelo, placa, valor, qtdPortas, cacamba, potencia, combustivel));
 
         Console.Clear();
+        System.Console.WriteLine("Produto Cadastrado com sucesso!");
         System.Console.WriteLine("=================================================================================");
-        System.Console.WriteLine($@"Veículo: {marcaModelo?.ToUpper()} | Cor: {char.ToUpper(cor[0]) + cor.Substring(1)} | Placa: {placa?.ToUpper()} | Valor: {valor.ToString("c")} | Data Fabricação: {dataFabricacao.ToString("d")} 
-Chassi: {chassi?.ToUpper()} | Potencia: {potencia}cv | Quantidade de Portas: {qtdPortas} | Litragem Caçamba: {cacamba}lt | Combustível: {char.ToUpper(combustivel[0]) + combustivel.Substring(1)}");
+        System.Console.WriteLine($@"Veículo: {marcaModelo?.ToUpper()} | Placa: {placa?.ToUpper()} | Valor: {valor.ToString("c")} | Data Fabricação: {dataFabricacao.ToString("d")} 
+Potencia: {potencia}cv | Quantidade de Portas: {qtdPortas} | Litragem Caçamba: {cacamba}lt | Combustível: {char.ToUpper(combustivel[0]) + combustivel.Substring(1)}");
         System.Console.WriteLine("=================================================================================");
 
         System.Console.Write(Environment.NewLine);
         System.Console.WriteLine("Pressione ENTER para voltar ao Menu Principal");
 
         Console.ReadLine();
-        Iniciar();
+        Iniciar(repository);
 
     }
 }

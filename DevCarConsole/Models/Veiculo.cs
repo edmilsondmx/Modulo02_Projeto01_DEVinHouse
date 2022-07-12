@@ -2,7 +2,8 @@ namespace DevCarConsole.Models;
 
 public class Veiculo
 {
-    private protected string? NumChassi { get; set; }
+    public string? Categoria { get; set; }
+    private protected string NumChassi = Guid.NewGuid().ToString().Substring(0,18);
     public DateTime DataFabricacao { get; set; }
     public string? Nome { get; set; }
     public string? Placa { get; set; }
@@ -17,7 +18,6 @@ public class Veiculo
 
     public Veiculo(DateTime dataFabricacao, string? nome, string? placa, decimal valor, string? cor)
     {
-        NumChassi = Guid.NewGuid().ToString().Substring(0,18);
         DataFabricacao = dataFabricacao;
         Nome = nome;
         Placa = placa;
@@ -26,7 +26,6 @@ public class Veiculo
     }
     public Veiculo(DateTime dataFabricacao, string? nome, string? placa, decimal valor)
     {
-        NumChassi = Guid.NewGuid().ToString().Substring(0,18);
         DataFabricacao = dataFabricacao;
         Nome = nome;
         Placa = placa;

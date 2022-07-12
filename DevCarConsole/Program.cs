@@ -1,4 +1,5 @@
-﻿using DevCarConsole.Models;
+﻿using DevCarConsole.Repositories;
+using DevCarConsole.Models;
 using DevCarConsole.Screens;
 namespace DevCarConsole;
 
@@ -6,9 +7,10 @@ public class Program
 {
     static void Main(string[] args)
     {
+        VeiculoRepository repository = new VeiculoRepository();
 
         PopularLista();
-        MenuScreen.Iniciar();
+        MenuScreen.Iniciar(repository);
 
         //Veiculo novoVeiculo = new Veiculo(new DateTime(2021,01,15), "VW Polo", "edp-5420", 22900m, "Preto");
 
