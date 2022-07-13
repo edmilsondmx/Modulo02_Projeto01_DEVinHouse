@@ -1,9 +1,10 @@
+using System.Text.RegularExpressions;
 using DevCarConsole.Repositories;
 using DevCarConsole.Validacoes;
 
 namespace DevCarConsole.Screens;
 
-public class AlterarInformacoesScreen
+public class VenderVeiculoScreen
 {
     public static void Iniciar(VeiculoRepository repository)
     {
@@ -11,17 +12,18 @@ public class AlterarInformacoesScreen
         MenuScreen.Bordas();
 
         Console.SetCursorPosition(2, 1);
-        System.Console.WriteLine("Alterar informações de Veículos");
+        System.Console.WriteLine("Vender Veículo");
         Console.SetCursorPosition(2, 2);
-        System.Console.WriteLine("===============================");
+        System.Console.WriteLine("==============");
 
         Console.SetCursorPosition(2, 3);
         System.Console.WriteLine("Digite a placa do");
         Console.SetCursorPosition(2, 4);
-        System.Console.Write("Veículo a ser alterado: ");
+        System.Console.Write("Veículo a ser vendido: ");
 
         string placa = Console.ReadLine()!;
-        ValidacaoPlaca.ValidarFormatoPlaca(placa.ToUpper(), repository);
+        //string placaTrim = Regex.Replace(placa, @"\s", "");
+        //CadastrarVeiculoScreen.ValidarPlaca(placaTrim, repository);
 
         foreach (var veiculo in repository.ListaDeVeiculos)
         {
@@ -36,18 +38,19 @@ public class AlterarInformacoesScreen
                     System.Console.WriteLine($"{veiculo.DataFabricacao.Year} | {veiculo.Valor.ToString("c")}");
 
                     Console.SetCursorPosition(2, 8);
-                    System.Console.Write("Valor do Veículo: ");
-                    decimal novoValor = decimal.Parse(Console.ReadLine()!);
+                    System.Console.Write("CPF do Comprador: ");
+                    ulong cpfComprador = ulong.Parse(Console.ReadLine()!);
+                    ValidacaoCPF.ValidarCPF(cpfComprador, repository);
 
                     Console.SetCursorPosition(2, 9);
-                    System.Console.Write("Cor: ");
-                    string novaCor = Console.ReadLine()!;
+                    System.Console.Write("Valor da venda: ");
+                    decimal valorVenda = decimal.Parse(Console.ReadLine()!);
 
-                    veiculo.AlterarInformacoes(novoValor, novaCor);
+                    veiculo.VenderVeículo(cpfComprador, valorVenda);
 
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.SetCursorPosition(2, 11);
-                    System.Console.WriteLine("Veículo Alterado com sucesso!");
+                    System.Console.WriteLine("Veículo Vendido com sucesso!");
                     Console.ForegroundColor = ConsoleColor.Green;
 
                     Console.SetCursorPosition(2, 13);
@@ -84,7 +87,7 @@ public class AlterarInformacoesScreen
                 System.Console.WriteLine("Veículo não encontrado!");
                 Console.SetCursorPosition(2, 8);
                 System.Console.WriteLine("Insira um veículo cadastrado!");
-                Console.ForegroundColor = ConsoleColor.Green;
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.SetCursorPosition(2, 11);
                 System.Console.Write("Pressione ENTER para ");
                 Console.SetCursorPosition(2, 12);
@@ -93,7 +96,7 @@ public class AlterarInformacoesScreen
                 MenuScreen.Iniciar(repository);
             }
         }
-
+        
     }
 
 }

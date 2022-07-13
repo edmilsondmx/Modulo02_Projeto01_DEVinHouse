@@ -9,24 +9,21 @@ public class Program
     {
         VeiculoRepository repository = new VeiculoRepository();
 
-        PopularLista();
+        PopularLista(repository);
         MenuScreen.Iniciar(repository);
 
-        //Veiculo novoVeiculo = new Veiculo(new DateTime(2021,01,15), "VW Polo", "edp-5420", 22900m, "Preto");
-
-       // System.Console.WriteLine($"Veículo: {novoVeiculo.Nome} | Cor: {novoVeiculo.Cor} | Placa: {novoVeiculo.Placa} | Valor: {novoVeiculo.Valor.ToString("c")} | Data Fabricação: {novoVeiculo.DataFabricacao.ToString("d")} | Chassi: {novoVeiculo.NumChassi?.ToUpper()}");
-
-        /* Caminhonete caminhonete1 = new Caminhonete(new DateTime(2021,01,15), "D20", "erd-2555", 98522.99m, "2", "500", "3000cv", "Diesel");
-
-        caminhonete1.AlterarInformacoes(190000m, "azul");
-
-        System.Console.WriteLine($"Veículo: {caminhonete1.Nome} | Cor: {caminhonete1.Cor} | Placa: {caminhonete1.Placa} | Valor: {caminhonete1.Valor.ToString("c")} | Data Fabricação: {caminhonete1.DataFabricacao.ToString("d")} | Chassi: {caminhonete1.NumChassi?.ToUpper()} | Total de Portas: {caminhonete1.TotalPortas} | Capacidade de Carga: {caminhonete1.CapacidadeCacamba}Lts | Potencia: {caminhonete1.Potencia} | Combustivel: {caminhonete1.Combustivel} | Categoria: {caminhonete1.Categoria}"); */
-
     }
 
-    static void PopularLista()
+    static void PopularLista(VeiculoRepository repository)
     {
-        //TODO
-        //popular lista
+        //popular com lista estática
+        repository.ListaDeVeiculos.Add(new MotoTriciclo(new DateTime(2022, 05, 22), "HONDA CB", "EDI8564", 15800m, "Preto", "250", "2"));
+        repository.ListaDeVeiculos.Add(new MotoTriciclo(new DateTime(2022, 06, 15), "HONDA CB", "KFL8965", 16900m, "Prata", "300", "2"));
+        repository.ListaDeVeiculos.Add(new Carro(new DateTime(2022, 03, 20), "VW POLO", "BVH8564", 89800m, "Cinza", "4", "Flex", "1400"));
+        repository.ListaDeVeiculos.Add(new Carro(new DateTime(2022, 03, 15), "VW VIRTUS", "TBS4582", 104800m, "Preto", "4", "Flex", "2000"));
+        repository.ListaDeVeiculos.Add(new Caminhonete(new DateTime(2022, 02, 10), "FORD RANGER", "NFG1285", 170500m, "4", "400lt", "3000", "Diesel"));
+        repository.ListaDeVeiculos.Add(new Caminhonete(new DateTime(2022, 03, 28), "VW AMAROK", "FRD4585", 200300m, "4", "350", "3000", "Gasolina"));
+        
     }
+
 }

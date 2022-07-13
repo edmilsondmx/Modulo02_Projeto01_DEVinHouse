@@ -52,7 +52,7 @@ public class ListarVeiculosScreen
 
     }
 
-    static void ListarMotoTriciclo(VeiculoRepository repository)
+    public static void ListarMotoTriciclo(VeiculoRepository repository)
     {
         Console.Clear();
 
@@ -90,7 +90,7 @@ public class ListarVeiculosScreen
         ListarVeiculosScreen.Iniciar(repository);
         
     }
-    static void ListarCarroPasseio(VeiculoRepository repository)
+    public static void ListarCarroPasseio(VeiculoRepository repository)
     {
         Console.Clear();
 
@@ -126,7 +126,7 @@ public class ListarVeiculosScreen
         ListarVeiculosScreen.Iniciar(repository);
         
     }
-    static void ListarCaminhonete(VeiculoRepository repository)
+    public static void ListarCaminhonete(VeiculoRepository repository)
     {
         Console.Clear();
 

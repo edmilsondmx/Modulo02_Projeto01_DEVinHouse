@@ -1,5 +1,8 @@
+using DevCarConsole.Validacoes;
 using DevCarConsole.Repositories;
 using DevCarConsole.Models;
+using System.Text.RegularExpressions;
+
 namespace DevCarConsole.Screens;
 
 public class CadastrarVeiculoScreen
@@ -69,7 +72,8 @@ public class CadastrarVeiculoScreen
         Console.SetCursorPosition(2, 6);
         System.Console.Write("Placa: ");
         string placa = Console.ReadLine()!;
-        ValidarPlaca(placa, repository);
+        string placaTrim = Regex.Replace(placa, @"\s", "");
+        ValidacaoPlaca.ValidarPlaca(placaTrim, repository);
 
 
         Console.SetCursorPosition(2, 7);
@@ -88,14 +92,17 @@ public class CadastrarVeiculoScreen
         System.Console.Write("Quantidade de Rodas: ");
         string qtdRodas = Console.ReadLine()!;
 
-        repository.ListaDeVeiculos.Add(new MotoTriciclo(dataFabricacao, marcaModelo, placa, valor, cor, potencia, qtdRodas));
+        repository.ListaDeVeiculos.Add(new MotoTriciclo(dataFabricacao, marcaModelo, placaTrim.ToUpper(), valor, cor, potencia, qtdRodas));
 
         Console.Clear();
         System.Console.WriteLine("Moto / Triciclo Cadastrado com sucesso!");
         System.Console.WriteLine("=================================================================================");
-        Console.ForegroundColor = ConsoleColor.White;
-        System.Console.WriteLine($@"Veículo: {marcaModelo?.ToUpper()} | Cor: {char.ToUpper(cor[0]) + cor.Substring(1)} | Placa: {placa?.ToUpper()} | Valor: {valor.ToString("c")}
-Data Fabricação: {dataFabricacao.ToString("d")} | Potencia: {potencia}cv | Quantidade de rodas: {qtdRodas}");
+        foreach (var veiculo in repository.ListaDeVeiculos)
+        {
+            if(veiculo.Placa == placaTrim.ToUpper())
+                System.Console.WriteLine(veiculo.ListarInformacoes());
+                    
+        }
         Console.ForegroundColor = ConsoleColor.Green;
         System.Console.WriteLine("=================================================================================");
 
@@ -127,7 +134,8 @@ Data Fabricação: {dataFabricacao.ToString("d")} | Potencia: {potencia}cv | Qua
         Console.SetCursorPosition(2, 6);
         System.Console.Write("Placa: ");
         string placa = Console.ReadLine()!;
-        ValidarPlaca(placa, repository);
+        string placaTrim = Regex.Replace(placa, @"\s", "");
+        ValidacaoPlaca.ValidarPlaca(placaTrim, repository);
 
         Console.SetCursorPosition(2, 7);
         System.Console.Write("Valor: ");
@@ -149,14 +157,17 @@ Data Fabricação: {dataFabricacao.ToString("d")} | Potencia: {potencia}cv | Qua
         System.Console.Write("Potência: ");
         string potencia = Console.ReadLine()!;
 
-        repository.ListaDeVeiculos.Add(new Carro(dataFabricacao, marcaModelo, placa, valor, cor, qtdPortas, combustivel, potencia));
+        repository.ListaDeVeiculos.Add(new Carro(dataFabricacao, marcaModelo, placaTrim.ToUpper(), valor, cor, qtdPortas, combustivel, potencia));
 
         Console.Clear();
         System.Console.WriteLine("Carro Cadastrado com sucesso!");
         System.Console.WriteLine("=================================================================================");
-        Console.ForegroundColor = ConsoleColor.White;
-        System.Console.WriteLine($@"Veículo: {marcaModelo?.ToUpper()} | Cor: {char.ToUpper(cor[0]) + cor.Substring(1)} | Placa: {placa?.ToUpper()} | Valor: {valor.ToString("c")} | Data Fabricação: {dataFabricacao.ToString("d")} 
-Potencia: {potencia}cv | Quantidade de Portas: {qtdPortas} | Combustível: {char.ToUpper(combustivel[0]) + combustivel.Substring(1)}");
+        foreach (var veiculo in repository.ListaDeVeiculos)
+        {
+            if(veiculo.Placa == placaTrim.ToUpper())
+                System.Console.WriteLine(veiculo.ListarInformacoes());
+                
+        }
         Console.ForegroundColor = ConsoleColor.Green;
         System.Console.WriteLine("=================================================================================");
 
@@ -188,7 +199,8 @@ Potencia: {potencia}cv | Quantidade de Portas: {qtdPortas} | Combustível: {char
         Console.SetCursorPosition(2, 6);
         System.Console.Write("Placa: ");
         string placa = Console.ReadLine()!;
-        ValidarPlaca(placa, repository);
+        string placaTrim = Regex.Replace(placa, @"\s", "");
+        ValidacaoPlaca.ValidarPlaca(placaTrim, repository);
 
         Console.SetCursorPosition(2, 7);
         System.Console.Write("Valor: ");
@@ -210,14 +222,17 @@ Potencia: {potencia}cv | Quantidade de Portas: {qtdPortas} | Combustível: {char
         System.Console.Write("Combustível: ");
         string combustivel = Console.ReadLine()!;
 
-        repository.ListaDeVeiculos.Add(new Caminhonete(dataFabricacao, marcaModelo, placa, valor, qtdPortas, cacamba, potencia, combustivel));
+        repository.ListaDeVeiculos.Add(new Caminhonete(dataFabricacao, marcaModelo, placaTrim.ToUpper(), valor, qtdPortas, cacamba, potencia, combustivel));
 
         Console.Clear();
         System.Console.WriteLine("Caminhonete Cadastrado com sucesso!");
         System.Console.WriteLine("=================================================================================");
-        Console.ForegroundColor = ConsoleColor.White;
-        System.Console.WriteLine($@"Veículo: {marcaModelo?.ToUpper()} | Placa: {placa?.ToUpper()} | Valor: {valor.ToString("c")} | Data Fabricação: {dataFabricacao.ToString("d")} 
-Potencia: {potencia}cv | Quantidade de Portas: {qtdPortas} | Litragem Caçamba: {cacamba}lt | Combustível: {char.ToUpper(combustivel[0]) + combustivel.Substring(1)}");
+        foreach (var veiculo in repository.ListaDeVeiculos)
+        {
+            if(veiculo.Placa == placaTrim.ToUpper())
+                System.Console.WriteLine(veiculo.ListarInformacoes());
+                
+        }
         Console.ForegroundColor = ConsoleColor.Green;
         System.Console.WriteLine("=================================================================================");
 
@@ -229,37 +244,4 @@ Potencia: {potencia}cv | Quantidade de Portas: {qtdPortas} | Litragem Caçamba: 
 
     }
 
-    static void ValidarPlaca(string placa, VeiculoRepository repository)
-    {
-        if(placa.Trim().Length != 7)
-        {
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.SetCursorPosition(2, 8);
-            System.Console.WriteLine("Placa inválida!");
-
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.SetCursorPosition(2, 10);
-            System.Console.WriteLine(@"Pressione ENTER para 
-            voltar ao Menu Anterior");
-            Console.ReadLine();
-            CadastrarVeiculoScreen.Iniciar(repository);
-        }
-        foreach (var veiculo in repository.ListaDeVeiculos)
-        {
-            char[] charTrim = {' ', '-', '_'};
-            if(veiculo.Placa == placa.Trim(charTrim))
-            {
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.SetCursorPosition(2, 8);
-                System.Console.WriteLine("Placa já Cadastrada no sistema!");
-  
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.SetCursorPosition(2, 10);
-                System.Console.WriteLine(@"Pressione ENTER para 
-                voltar ao Menu Anterior");
-                Console.ReadLine();
-                CadastrarVeiculoScreen.Iniciar(repository);
-            }            
-        }
-    }
 }

@@ -15,9 +15,10 @@ public class MenuScreen
             case 1: CadastrarVeiculoScreen.Iniciar(repository); break;
             case 2: AlterarInformacoesScreen.Iniciar(repository); break;
             case 3: ListarVeiculosScreen.Iniciar(repository); break;
-            case 4: break;
-            case 5: VendidosScreen.Iniciar(repository); break;
-            case 6: break;
+            case 4: VenderVeiculoScreen.Iniciar(repository); break;
+            case 5: ListarDisponiveis.Iniciar(repository); break;
+            case 6: ListarVendidosScreen.Iniciar(repository); break;
+            case 7: break;
             case 0: Console.Clear(); Environment.Exit(0); break;
             default: break;
         }
@@ -44,18 +45,21 @@ public class MenuScreen
         //moto, carro ou caminhonete
 
         Console.SetCursorPosition(2, 7);
-        System.Console.WriteLine("4 - Veículos Disponíveis");
+        System.Console.WriteLine("4 - Vender Veículo");
 
         Console.SetCursorPosition(2, 8);
-        System.Console.WriteLine("5 - Veículos Vendidos");
+        System.Console.WriteLine("5 - Veículos Disponíveis");
 
         Console.SetCursorPosition(2, 9);
-        System.Console.WriteLine("6 - Histórico de transferências");
+        System.Console.WriteLine("6 - Veículos Vendidos");
 
         Console.SetCursorPosition(2, 10);
+        System.Console.WriteLine("7 - Histórico de transferências");
+
+        Console.SetCursorPosition(2, 11);
         System.Console.WriteLine("0 - Sair");
 
-        Console.SetCursorPosition(2, 12);
+        Console.SetCursorPosition(2, 13);
         System.Console.Write("Digite a opção: ");
     }
 
