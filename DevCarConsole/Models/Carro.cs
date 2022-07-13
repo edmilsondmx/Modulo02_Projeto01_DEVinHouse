@@ -17,7 +17,7 @@ public class Carro : Veiculo
         Potencia = potencia;
     }
 
-    public override string ToString()
+    public override string ListarInformacoes()
     {
         Console.ForegroundColor = ConsoleColor.White;
         

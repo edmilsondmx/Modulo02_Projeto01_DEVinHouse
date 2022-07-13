@@ -38,7 +38,7 @@ public class Veiculo
         ValorVenda = valorVenda;
     }
 
-    public string ListarInformacoes()
+    public virtual string ListarInformacoes()
     {
         return "";
     }
