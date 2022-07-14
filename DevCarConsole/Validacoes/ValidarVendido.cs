@@ -13,7 +13,7 @@ public static class ValidarVendido
             {
                 quantidadeVeiculos = false;
                 System.Console.WriteLine(veiculo.ListarInformacoes());
-                System.Console.WriteLine($"Valor de Venda: {veiculo.ValorVenda.ToString("c")}");
+                System.Console.WriteLine($"Valor de Venda: {veiculo.ValorVenda.ToString("c")} | CPF do Comprador: {veiculo.CpfComprador}");
 
                 Console.ForegroundColor = ConsoleColor.Green;
 
@@ -21,6 +21,7 @@ public static class ValidarVendido
             }
             
         }
+        
         if(quantidadeVeiculos)
         {
             

@@ -5,10 +5,10 @@ namespace DevCarConsole.Validacoes;
 
 public static class ValidacaoCPF
 {
-    public static void ValidarCPF(ulong numCpf, VeiculoRepository repository)
+    public static void ValidarCPF(string numCpf, VeiculoRepository repository)
 
     {
-        if (numCpf > 99999999999 || numCpf < 11111111111)
+        if (numCpf.Length != 11)
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.SetCursorPosition(2, 10);

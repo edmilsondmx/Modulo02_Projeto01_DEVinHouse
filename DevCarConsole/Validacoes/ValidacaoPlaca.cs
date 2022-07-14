@@ -58,6 +58,27 @@ public static class ValidacaoPlaca
             Console.ReadLine();
             MenuScreen.Iniciar(repository);
         }
+
+        var notFound = (repository.ListaDeVeiculos.Where(veiculo => veiculo.Placa == placa)).FirstOrDefault();
+
+        if(notFound == null)
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.SetCursorPosition(2, 7);
+            System.Console.WriteLine("Veículo não encontrado!");
+            Console.SetCursorPosition(2, 8);
+            System.Console.WriteLine("Insira um veículo cadastrado!");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.SetCursorPosition(2, 11);
+            System.Console.Write("Pressione ENTER para ");
+            Console.SetCursorPosition(2, 12);
+            System.Console.Write("voltar ao Menu Principal");
+            Console.ReadLine();
+            MenuScreen.Iniciar(repository);
+    
+        }
+
+        
     }
     
 }

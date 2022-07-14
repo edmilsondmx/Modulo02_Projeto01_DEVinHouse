@@ -8,7 +8,7 @@ public class Veiculo
     public string? Nome { get; set; }
     public string? Placa { get; set; }
     public decimal Valor { get; set; }
-    private protected ulong CpfComprador = 0;
+    public string? CpfComprador = null;
     public string? Cor { get; set; }
     public decimal ValorVenda = 0;
 
@@ -32,7 +32,7 @@ public class Veiculo
         Valor = valor;
     }
 
-    public void VenderVeículo(ulong cpfComprador, decimal valorVenda)
+    public void VenderVeículo(string cpfComprador, decimal valorVenda)
     {
         CpfComprador = cpfComprador;
         ValorVenda = valorVenda;
