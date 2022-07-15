@@ -7,7 +7,7 @@ namespace DevCarConsole.Screens;
 
 public class CadastrarVeiculoScreen
 {
-    public static void Iniciar(VeiculoRepository repository)
+    public static void Iniciar( VeiculoRepository repository)
     {
         Console.Clear();
         MenuScreen.Bordas();

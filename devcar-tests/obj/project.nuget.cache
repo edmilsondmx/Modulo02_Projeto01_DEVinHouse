@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UYILQvGD9YbZRiaAy4clRwu9Yn+252SlJY5Y9f47rjoS23SZZKVi7lqvl7Pa/aTjXbsAPNe84F+lCA1cpWHjUA==",
+  "dgSpecHash": "z1XMR23MYmuKXsXdqKX/rOSlbXFToG3tqaYA0y+W79R3H8GEds6VFYHdPumzGME4OcFauqm1DelOKcrvEV2v/w==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Edmilson\\Documents\\DevinHouse\\Módulo 2\\Projetos\\Modulo02_Projeto01_DEVinHouse\\devcar-tests\\devcar-tests.csproj",
+  "projectFilePath": "C:\\Users\\Edmilson\\Documents\\DevinHouse\\Módulo 2\\Projetos\\Modulo02_Projeto01_DEVinHouse\\devcar-tests\\devcar-tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Edmilson\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\Edmilson\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",

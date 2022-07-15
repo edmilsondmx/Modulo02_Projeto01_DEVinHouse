@@ -3,28 +3,34 @@ namespace DevCarConsole.Models;
 public class Caminhonete : Veiculo
 {
     public string? TotalPortas { get; set; }
-    public string? CapacidadeCacamba { get; set; } // Em Litros
-    public string? Potencia { get; set; } //Cavalos
-    public string? Combustivel { get; set; }//Gasolina ou Disel
+    public string? CapacidadeCacamba { get; set; }
+    public string? Combustivel { get; set; }
     public Caminhonete()
     {
     }
 
-    public Caminhonete(DateTime dataFabricacao, string? nome, string? placa, decimal valor, string? totalPortas, string? capacidadeCacamba, string? potencia, string? combustivel) : base(dataFabricacao, nome, placa, valor)
+    public Caminhonete(DateTime dataFabricacao, string? nome, string? placa, decimal valor, string? potencia, string? totalPortas, string? capacidadeCacamba,  string? combustivel) : base(dataFabricacao, nome, placa, valor, potencia)
     {
         Categoria = "Caminhonete";
         Cor = "Roxa";
         TotalPortas = totalPortas;
         CapacidadeCacamba = capacidadeCacamba;
-        Potencia = potencia;
         Combustivel = combustivel;
     }
 
     public override void AlterarInformacoes(decimal valor, string? cor)
     {
-        if(cor != "roxo")
-            System.Console.WriteLine("Fabricamos apenas caminhonetes na cor Roxa");
-        Cor = "Roxo";
+        if(cor?.ToLower() == "roxa" || cor == null)
+        {
+            Cor = "Roxa";
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.SetCursorPosition(2, 10);
+            System.Console.WriteLine(@"Fabricamos apenas caminhonetes 
+    na cor Roxa");
+        }
         Valor = valor;
     }
 

@@ -46,7 +46,7 @@ public class AlterarInformacoesScreen
                     veiculo.AlterarInformacoes(novoValor, novaCor);
 
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.SetCursorPosition(2, 11);
+                    Console.SetCursorPosition(2, 12);
                     System.Console.WriteLine("Veículo Alterado com sucesso!");
                     Console.ForegroundColor = ConsoleColor.Green;
 

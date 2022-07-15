@@ -8,32 +8,38 @@ public class Veiculo
     public string? Nome { get; set; }
     public string? Placa { get; set; }
     public decimal Valor { get; set; }
-    public string? CpfComprador = null;
+    public string? CpfComprador { get; set; }
     public string? Cor { get; set; }
     public decimal ValorVenda = 0;
+    public string? Potencia { get; set; }
+
+    public DateTime DataVenda { get; set; }
 
     public Veiculo()
     {
     }
 
-    public Veiculo(DateTime dataFabricacao, string? nome, string? placa, decimal valor, string? cor)
+    public Veiculo(DateTime dataFabricacao, string? nome, string? placa, decimal valor, string? cor, string? potencia)
     {
         DataFabricacao = dataFabricacao;
         Nome = nome;
         Placa = placa;
         Valor = valor;
         Cor = cor;
+        Potencia = potencia;
     }
-    public Veiculo(DateTime dataFabricacao, string? nome, string? placa, decimal valor)
+    public Veiculo(DateTime dataFabricacao, string? nome, string? placa, decimal valor, string? potencia)
     {
         DataFabricacao = dataFabricacao;
         Nome = nome;
         Placa = placa;
         Valor = valor;
+        Potencia = potencia;
     }
 
-    public void VenderVeículo(string cpfComprador, decimal valorVenda)
+    public void VenderVeiculo(string cpfComprador, decimal valorVenda)
     {
+        DataVenda = DateTime.Now;
         CpfComprador = cpfComprador;
         ValorVenda = valorVenda;
     }

@@ -1,3 +1,5 @@
+using System.Linq;
+using DevCarConsole.Models;
 using DevCarConsole.Repositories;
 using DevCarConsole.Validacoes;
 
@@ -15,8 +17,8 @@ public class ListarVendidosScreen
         switch (opcoes)
         {
             case 1: ListartodosVendidos(repository); break;
-            case 2: ListarVendidoMaiorValor(); break;
-            case 3: ListarVendidoMenorValor(); break;
+            case 2: ListarVendidoMaiorValor(repository); break;
+            case 3: ListarVendidoMenorValor(repository); break;
             case 0: MenuScreen.Iniciar(repository); break;
             default: break;
         }
@@ -49,24 +51,85 @@ public class ListarVendidosScreen
     static void ListartodosVendidos(VeiculoRepository repository)
     {
         Console.Clear();
-        System.Console.WriteLine("Veiculos Vendidos");
+        System.Console.WriteLine("Todos Veiculos Vendidos");
         System.Console.WriteLine("=================");
         System.Console.Write(Environment.NewLine);
 
-        ValidarVendido.ValidarCarrosVendidos(repository);
+        ValidarVendido.ValidarTodosVeiculosVendidos(repository);
+
+        var vendidosOrdem = repository.ListaDeVeiculos.OrderBy(veiculo => veiculo?.DataVenda).DefaultIfEmpty();
+
+        foreach (var veiculo in vendidosOrdem)
+        {
+            if(veiculo?.CpfComprador != null)
+            {
+                MostrarInformacoes(veiculo);
+            }
+        }
 
         System.Console.Write(Environment.NewLine);
         System.Console.WriteLine("Pressione ENTER para voltar ao Menu Anterior!");
         Console.ReadLine();
         Iniciar(repository);
     }
-    static void ListarVendidoMaiorValor()
+    static void ListarVendidoMaiorValor(VeiculoRepository repository)
     {
-        
+        Console.Clear();
+        System.Console.WriteLine("Veículo Vendido com Maior Valor");
+        System.Console.WriteLine("===============================");
+        System.Console.Write(Environment.NewLine);
 
+        decimal? maiorValor = repository.ListaDeVeiculos.Where(veiculo => veiculo.CpfComprador != null).ToList().DefaultIfEmpty().Max(veiculo => veiculo?.ValorVenda);
+
+        ValidarVendido.ValidarSeExisteMaiorOuMenorValor(maiorValor, repository);
+
+        foreach (var veiculo in repository.ListaDeVeiculos)
+        {
+            if(veiculo.ValorVenda == maiorValor)
+            {
+                MostrarInformacoes(veiculo);
+            }
+        }
+
+        System.Console.Write(Environment.NewLine);
+        System.Console.WriteLine("Pressione ENTER para voltar ao Menu Anterior!");
+        Console.ReadLine();
+        Iniciar(repository);
     }
-    static void ListarVendidoMenorValor()
+    static void ListarVendidoMenorValor(VeiculoRepository repository)
     {
+        Console.Clear();
+        System.Console.WriteLine("Veiculo Vendido com Menor Valor");
+        System.Console.WriteLine("===============================");
+        System.Console.Write(Environment.NewLine);
 
+        
+        decimal? menorValor = repository.ListaDeVeiculos.Where(veiculo => veiculo.CpfComprador != null).ToList().DefaultIfEmpty().Min(veiculo => veiculo?.ValorVenda);
+
+        ValidarVendido.ValidarSeExisteMaiorOuMenorValor(menorValor, repository);
+
+        foreach (var veiculo in repository.ListaDeVeiculos)
+        {
+            if(veiculo.ValorVenda == menorValor)
+            {
+                MostrarInformacoes(veiculo);
+            }
+        }
+        
+        System.Console.Write(Environment.NewLine);
+        System.Console.WriteLine("Pressione ENTER para voltar ao Menu Anterior!");
+        Console.ReadLine();
+        Iniciar(repository);
+    }
+
+    private protected static void MostrarInformacoes(Veiculo veiculo)
+    {
+        System.Console.WriteLine(veiculo.ListarInformacoes());
+
+        System.Console.WriteLine($"Valor de Venda: {veiculo.ValorVenda.ToString("c")} | CPF do Comprador: {veiculo.CpfComprador}");
+        System.Console.WriteLine($"Data e hora da venda: {veiculo.DataVenda}");
+
+        Console.ForegroundColor = ConsoleColor.Green;
+        System.Console.WriteLine("=======================================================================================================================");
     }
 }

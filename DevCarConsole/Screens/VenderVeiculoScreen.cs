@@ -21,12 +21,12 @@ public class VenderVeiculoScreen
         Console.SetCursorPosition(2, 4);
         System.Console.Write("Veículo a ser vendido: ");
 
-        string placa = Console.ReadLine()!;
-        ValidacaoPlaca.ValidarFormatoPlaca(placa.ToUpper(), repository);
+        string placa = Console.ReadLine()!.ToUpper();
+        ValidacaoPlaca.ValidarFormatoPlaca(placa, repository);
 
         foreach (var veiculo in repository.ListaDeVeiculos)
         {
-            if(veiculo.Placa == placa.ToUpper())
+            if(veiculo.Placa == placa)
             {
                 if(veiculo.ValorVenda == 0)
                 {
@@ -44,8 +44,9 @@ public class VenderVeiculoScreen
                     Console.SetCursorPosition(2, 9);
                     System.Console.Write("Valor da venda: ");
                     decimal valorVenda = decimal.Parse(Console.ReadLine()!);
+                    ValidacaoValorVenda.ValidarValorMaiorQueZero(valorVenda, repository);
 
-                    veiculo.VenderVeículo(cpfComprador, valorVenda);
+                    veiculo.VenderVeiculo(cpfComprador, valorVenda);
 
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.SetCursorPosition(2, 11);
