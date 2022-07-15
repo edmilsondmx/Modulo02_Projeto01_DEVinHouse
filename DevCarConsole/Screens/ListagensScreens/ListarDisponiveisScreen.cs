@@ -1,9 +1,9 @@
 using DevCarConsole.Repositories;
 using DevCarConsole.Validacoes;
 
-namespace DevCarConsole.Screens;
+namespace DevCarConsole.Screens.ListagensScreens;
 
-public static class ListarDisponiveis
+public static class ListarDisponiveisScreen
 {
     public static void Iniciar(VeiculoRepository repository)
     {

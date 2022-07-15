@@ -1,7 +1,9 @@
 using DevCarConsole.Repositories;
+using DevCarConsole.Screens.ListagensScreens;
+
 namespace DevCarConsole.Screens;
 
-public class MenuScreen
+public static class MenuScreen
 {
     public static void Iniciar(VeiculoRepository repository)
     {
@@ -16,7 +18,7 @@ public class MenuScreen
             case 2: AlterarInformacoesScreen.Iniciar(repository); break;
             case 3: ListarVeiculosScreen.Iniciar(repository); break;
             case 4: VenderVeiculoScreen.Iniciar(repository); break;
-            case 5: ListarDisponiveis.Iniciar(repository); break;
+            case 5: ListarDisponiveisScreen.Iniciar(repository); break;
             case 6: ListarVendidosScreen.Iniciar(repository); break;
             case 0: Console.Clear(); Environment.Exit(0); break;
             default: break;

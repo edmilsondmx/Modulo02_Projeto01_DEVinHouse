@@ -1,6 +1,6 @@
 using DevCarConsole.Models;
 using DevCarConsole.Repositories;
-namespace DevCarConsole.Screens;
+namespace DevCarConsole.Screens.ListagensScreens;
 
 public class ListarVeiculosScreen
 {

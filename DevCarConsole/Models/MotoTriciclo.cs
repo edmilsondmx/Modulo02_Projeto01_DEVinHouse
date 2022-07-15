@@ -15,10 +15,7 @@ public class MotoTriciclo : Veiculo
 
     public override string ListarInformacoes()
     {
-        Console.ForegroundColor = ConsoleColor.White;
-        
-        return $@"Veículo: {Nome?.ToUpper()} | Cor: {char.ToUpper(Cor![0]) + Cor.Substring(1)} | Placa: {Placa?.ToUpper()} | Valor: {Valor.ToString("c")}
-Data Fabricação: {DataFabricacao.ToString("d")} | Chassi: {NumChassi?.ToUpper()} | Potencia: {Potencia}cv | Quantidade de rodas: {QuantidadeRodas}";
+        return $"{base.ListarInformacoes()} | Quantidade de Rodas: {QuantidadeRodas}";
     }
 
 }

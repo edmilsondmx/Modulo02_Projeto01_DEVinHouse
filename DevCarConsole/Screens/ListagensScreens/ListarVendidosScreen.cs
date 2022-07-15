@@ -3,7 +3,7 @@ using DevCarConsole.Models;
 using DevCarConsole.Repositories;
 using DevCarConsole.Validacoes;
 
-namespace DevCarConsole.Screens;
+namespace DevCarConsole.Screens.ListagensScreens;
 
 public class ListarVendidosScreen
 {
@@ -52,7 +52,7 @@ public class ListarVendidosScreen
     {
         Console.Clear();
         System.Console.WriteLine("Todos Veiculos Vendidos");
-        System.Console.WriteLine("=================");
+        System.Console.WriteLine("=======================");
         System.Console.Write(Environment.NewLine);
 
         ValidarVendido.ValidarTodosVeiculosVendidos(repository);

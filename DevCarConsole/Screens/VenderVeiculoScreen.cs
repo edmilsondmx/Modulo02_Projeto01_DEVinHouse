@@ -44,7 +44,7 @@ public class VenderVeiculoScreen
                     Console.SetCursorPosition(2, 9);
                     System.Console.Write("Valor da venda: ");
                     decimal valorVenda = decimal.Parse(Console.ReadLine()!);
-                    ValidacaoValorVenda.ValidarValorMaiorQueZero(valorVenda, repository);
+                    ValidacaoValor.ValidarValorVendaMaiorQueZero(valorVenda, repository);
 
                     veiculo.VenderVeiculo(cpfComprador, valorVenda);
 
