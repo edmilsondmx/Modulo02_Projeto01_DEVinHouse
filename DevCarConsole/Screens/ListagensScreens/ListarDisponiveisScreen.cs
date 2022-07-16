@@ -1,3 +1,4 @@
+using DevCarConsole.Models;
 using DevCarConsole.Repositories;
 using DevCarConsole.Validacoes;
 
@@ -5,7 +6,7 @@ namespace DevCarConsole.Screens.ListagensScreens;
 
 public static class ListarDisponiveisScreen
 {
-    public static void Iniciar(VeiculoRepository repository)
+    public static void Iniciar(IList<Veiculo> repository)
     {
         Console.Clear();
         System.Console.WriteLine("Veiculos Disponíveis");

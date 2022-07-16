@@ -2,12 +2,8 @@ using DevCarConsole.Models;
 namespace DevCarConsole.Repositories;
 
 //ToDo: Refatorar classe para estática
-public class VeiculoRepository
+public static class VeiculoRepository
 {
-    public IList<Veiculo> ListaDeVeiculos {get; set;} = null!;
+    public static List<Veiculo> ListaDeVeiculos {get; set;} = new();
 
-    public VeiculoRepository()
-    {
-        ListaDeVeiculos = new List<Veiculo>();
-    }
 }

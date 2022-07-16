@@ -1,5 +1,6 @@
 
 using System.Text.RegularExpressions;
+using DevCarConsole.Models;
 using DevCarConsole.Repositories;
 using DevCarConsole.Screens;
 
@@ -7,7 +8,7 @@ namespace DevCarConsole.Validacoes;
 
 public static class ValidacaoPlaca
 {
-    public static void ValidarPlaca(string placa, VeiculoRepository repository)
+    public static void ValidarPlaca(string placa, IList<Veiculo> repository)
     {
         if(placa.Length != 7)
         {
@@ -24,7 +25,7 @@ public static class ValidacaoPlaca
             Console.ReadLine();
             CadastrarVeiculoScreen.Iniciar(repository);
         }
-        foreach (var veiculo in repository.ListaDeVeiculos)
+        foreach (var veiculo in repository)
         {
             if(veiculo.Placa == placa)
             {
@@ -41,7 +42,7 @@ public static class ValidacaoPlaca
             }            
         }
     }
-    public static void ValidarFormatoPlaca(string placa, VeiculoRepository repository)
+    public static void ValidarFormatoPlaca(string placa, IList<Veiculo> repository)
     {
         if(placa.Length != 7)
         {
@@ -59,7 +60,7 @@ public static class ValidacaoPlaca
             MenuScreen.Iniciar(repository);
         }
 
-        var notFound = (repository.ListaDeVeiculos.Where(veiculo => veiculo.Placa == placa)).FirstOrDefault();
+        var notFound = (repository.Where(veiculo => veiculo.Placa == placa)).FirstOrDefault();
 
         if(notFound == null)
         {

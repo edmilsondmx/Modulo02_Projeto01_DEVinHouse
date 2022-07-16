@@ -1,3 +1,4 @@
+using DevCarConsole.Models;
 using DevCarConsole.Repositories;
 using DevCarConsole.Screens;
 using DevCarConsole.Screens.ListagensScreens;
@@ -6,10 +7,10 @@ namespace DevCarConsole.Validacoes;
 
 public static class ValidarVendido
 {
-    public static void ValidarTodosVeiculosVendidos(VeiculoRepository repository)
+    public static void ValidarTodosVeiculosVendidos(IList<Veiculo> repository)
     {
         bool quantidadeVeiculos = true;
-        foreach (var veiculo in repository.ListaDeVeiculos)
+        foreach (var veiculo in repository)
         {
             if(veiculo.CpfComprador != null)
             {
@@ -28,10 +29,10 @@ public static class ValidarVendido
         }
         return;
     }
-    public static void ValidarCarrosDisponiveis(VeiculoRepository repository)
+    public static void ValidarCarrosDisponiveis(IList<Veiculo> repository)
     {
         bool quantidadeVeiculos = true;
-        foreach (var veiculo in repository.ListaDeVeiculos)
+        foreach (var veiculo in repository)
         {
             if(veiculo.ValorVenda == 0)
             {
@@ -54,7 +55,7 @@ public static class ValidarVendido
         }
     }
 
-    public static void ValidarSeExisteMaiorOuMenorValor(decimal? valorVeiculo, VeiculoRepository repository)
+    public static void ValidarSeExisteMaiorOuMenorValor(decimal? valorVeiculo, IList<Veiculo> repository)
     {
         if(valorVeiculo == null)
         {

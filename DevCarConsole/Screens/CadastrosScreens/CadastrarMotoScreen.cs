@@ -7,7 +7,7 @@ namespace DevCarConsole.Screens.CadastrosScreens;
 
 public static class CadastrarMotoScreen
 {
-    public static void MotoTriciclo(VeiculoRepository repository)
+    public static void MotoTriciclo(IList<Veiculo> repository)
     {
         Console.Clear();
         MenuScreen.Bordas();
@@ -24,11 +24,12 @@ public static class CadastrarMotoScreen
         Console.SetCursorPosition(2, 5);
         System.Console.Write("Marca / Modelo: ");
         string marcaModelo = Console.ReadLine()!;
+        ValidarInput.ValidacaoDeInput(marcaModelo);
 
         Console.SetCursorPosition(2, 6);
         System.Console.Write("Placa: ");
         string placa = Console.ReadLine()!;
-        string placaTrim = Regex.Replace(placa, @"\s", "");
+        string placaTrim = Regex.Replace(placa, @"\s", "").ToUpper();
         ValidacaoPlaca.ValidarPlaca(placaTrim, repository);
 
 
@@ -49,14 +50,14 @@ public static class CadastrarMotoScreen
         System.Console.Write("Quantidade de Rodas: ");
         string qtdRodas = Console.ReadLine()!;
 
-        repository.ListaDeVeiculos.Add(new MotoTriciclo(dataFabricacao, marcaModelo, placaTrim.ToUpper(), valor, cor, potencia, qtdRodas));
+        repository.Add(new MotoTriciclo(dataFabricacao, marcaModelo, placaTrim, valor, cor, potencia, qtdRodas));
 
         Console.Clear();
         System.Console.WriteLine("Moto / Triciclo Cadastrado com sucesso!");
         System.Console.WriteLine("=================================================================================");
-        foreach (var veiculo in repository.ListaDeVeiculos)
+        foreach (var veiculo in repository)
         {
-            if(veiculo.Placa == placaTrim.ToUpper())
+            if(veiculo.Placa == placaTrim)
                 System.Console.WriteLine(veiculo.ListarInformacoes());
                     
         }

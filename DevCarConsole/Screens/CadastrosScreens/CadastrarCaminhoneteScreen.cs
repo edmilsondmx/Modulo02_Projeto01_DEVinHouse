@@ -7,7 +7,7 @@ namespace DevCarConsole.Screens.CadastrosScreens;
 
 public static class CadastrarCaminhoneteScreen
 {
-    public static void Caminhonete(VeiculoRepository repository)
+    public static void Caminhonete(IList<Veiculo> repository)
     {
         Console.Clear();
         MenuScreen.Bordas();
@@ -28,7 +28,7 @@ public static class CadastrarCaminhoneteScreen
         Console.SetCursorPosition(2, 6);
         System.Console.Write("Placa: ");
         string placa = Console.ReadLine()!;
-        string placaTrim = Regex.Replace(placa, @"\s", "");
+        string placaTrim = Regex.Replace(placa, @"\s", "").ToUpper();
         ValidacaoPlaca.ValidarPlaca(placaTrim, repository);
 
         Console.SetCursorPosition(2, 7);
@@ -52,14 +52,14 @@ public static class CadastrarCaminhoneteScreen
         System.Console.Write("Combustível: ");
         string combustivel = Console.ReadLine()!;
 
-        repository.ListaDeVeiculos.Add(new Caminhonete(dataFabricacao, marcaModelo, placaTrim.ToUpper(), valor, qtdPortas, cacamba, potencia, combustivel));
+        repository.Add(new Caminhonete(dataFabricacao, marcaModelo, placaTrim, valor, qtdPortas, cacamba, potencia, combustivel));
 
         Console.Clear();
         System.Console.WriteLine("Caminhonete Cadastrado com sucesso!");
         System.Console.WriteLine("=================================================================================");
-        foreach (var veiculo in repository.ListaDeVeiculos)
+        foreach (var veiculo in repository)
         {
-            if(veiculo.Placa == placaTrim.ToUpper())
+            if(veiculo.Placa == placaTrim)
                 System.Console.WriteLine(veiculo.ListarInformacoes());
                 
         }

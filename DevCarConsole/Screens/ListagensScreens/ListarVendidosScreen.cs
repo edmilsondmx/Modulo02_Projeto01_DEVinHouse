@@ -7,7 +7,7 @@ namespace DevCarConsole.Screens.ListagensScreens;
 
 public class ListarVendidosScreen
 {
-    public static void Iniciar(VeiculoRepository repository)
+    public static void Iniciar(IList<Veiculo> repository)
     {
         Console.Clear();
         MenuScreen.Bordas();
@@ -48,7 +48,7 @@ public class ListarVendidosScreen
 
     }
 
-    static void ListartodosVendidos(VeiculoRepository repository)
+    static void ListartodosVendidos(IList<Veiculo> repository)
     {
         Console.Clear();
         System.Console.WriteLine("Todos Veiculos Vendidos");
@@ -57,7 +57,7 @@ public class ListarVendidosScreen
 
         ValidarVendido.ValidarTodosVeiculosVendidos(repository);
 
-        var vendidosOrdem = repository.ListaDeVeiculos.OrderBy(veiculo => veiculo?.DataVenda).DefaultIfEmpty();
+        var vendidosOrdem = repository.OrderBy(veiculo => veiculo?.DataVenda).DefaultIfEmpty();
 
         foreach (var veiculo in vendidosOrdem)
         {
@@ -72,18 +72,18 @@ public class ListarVendidosScreen
         Console.ReadLine();
         Iniciar(repository);
     }
-    static void ListarVendidoMaiorValor(VeiculoRepository repository)
+    static void ListarVendidoMaiorValor(IList<Veiculo> repository)
     {
         Console.Clear();
         System.Console.WriteLine("Veículo Vendido com Maior Valor");
         System.Console.WriteLine("===============================");
         System.Console.Write(Environment.NewLine);
 
-        decimal? maiorValor = repository.ListaDeVeiculos.Where(veiculo => veiculo.CpfComprador != null).ToList().DefaultIfEmpty().Max(veiculo => veiculo?.ValorVenda);
+        decimal? maiorValor = repository.Where(veiculo => veiculo.CpfComprador != null).ToList().DefaultIfEmpty().Max(veiculo => veiculo?.ValorVenda);
 
         ValidarVendido.ValidarSeExisteMaiorOuMenorValor(maiorValor, repository);
 
-        foreach (var veiculo in repository.ListaDeVeiculos)
+        foreach (var veiculo in repository)
         {
             if(veiculo.ValorVenda == maiorValor)
             {
@@ -96,7 +96,7 @@ public class ListarVendidosScreen
         Console.ReadLine();
         Iniciar(repository);
     }
-    static void ListarVendidoMenorValor(VeiculoRepository repository)
+    static void ListarVendidoMenorValor(IList<Veiculo> repository)
     {
         Console.Clear();
         System.Console.WriteLine("Veiculo Vendido com Menor Valor");
@@ -104,11 +104,11 @@ public class ListarVendidosScreen
         System.Console.Write(Environment.NewLine);
 
         
-        decimal? menorValor = repository.ListaDeVeiculos.Where(veiculo => veiculo.CpfComprador != null).ToList().DefaultIfEmpty().Min(veiculo => veiculo?.ValorVenda);
+        decimal? menorValor = repository.Where(veiculo => veiculo.CpfComprador != null).ToList().DefaultIfEmpty().Min(veiculo => veiculo?.ValorVenda);
 
         ValidarVendido.ValidarSeExisteMaiorOuMenorValor(menorValor, repository);
 
-        foreach (var veiculo in repository.ListaDeVeiculos)
+        foreach (var veiculo in repository)
         {
             if(veiculo.ValorVenda == menorValor)
             {

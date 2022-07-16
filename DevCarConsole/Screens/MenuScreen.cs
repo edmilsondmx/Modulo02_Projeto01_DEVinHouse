@@ -1,17 +1,30 @@
+using DevCarConsole.Models;
 using DevCarConsole.Repositories;
 using DevCarConsole.Screens.ListagensScreens;
+using DevCarConsole.Validacoes;
 
 namespace DevCarConsole.Screens;
 
 public static class MenuScreen
 {
-    public static void Iniciar(VeiculoRepository repository)
+    public static void Iniciar(IList<Veiculo> repository)
     {
         Console.Clear();
         Bordas();
         Opcoes();
 
-        var opcoes = short.Parse(Console.ReadLine()!);
+        ushort opcoes;
+        try
+        {
+            opcoes = ushort.Parse(Console.ReadLine()!);
+            
+        }
+        catch(Exception ex)
+        {
+            System.Console.WriteLine(Environment.NewLine);
+            throw new Exception($"Formato de dado inválido. Escolha uma das opções.{ex.Message}");
+        }
+        
         switch (opcoes)
         {
             case 1: CadastrarVeiculoScreen.Iniciar(repository); break;

@@ -1,3 +1,4 @@
+using DevCarConsole.Models;
 using DevCarConsole.Repositories;
 using DevCarConsole.Screens;
 
@@ -5,7 +6,7 @@ namespace DevCarConsole.Validacoes;
 
 public static class ValidacaoValor
 {
-    public static void ValidarValorVendaMaiorQueZero(decimal valorVenda, VeiculoRepository repository)
+    public static void ValidarValorVendaMaiorQueZero(decimal valorVenda, IList<Veiculo> repository)
     {
         if(valorVenda <= 0)
         {
@@ -24,7 +25,7 @@ public static class ValidacaoValor
         }
         return;
     }
-    public static void ValidarValorCadastroMaiorQueZero(decimal valor, VeiculoRepository repository)
+    public static void ValidarValorCadastroMaiorQueZero(decimal valor, IList<Veiculo> repository)
     {
         if(valor <= 0)
         {

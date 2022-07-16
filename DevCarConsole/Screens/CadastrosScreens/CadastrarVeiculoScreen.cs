@@ -1,3 +1,4 @@
+using DevCarConsole.Models;
 using DevCarConsole.Repositories;
 using DevCarConsole.Screens.CadastrosScreens;
 
@@ -5,7 +6,7 @@ namespace DevCarConsole.Screens;
 
 public static class CadastrarVeiculoScreen
 {
-    public static void Iniciar( VeiculoRepository repository)
+    public static void Iniciar(IList<Veiculo> repository)
     {
         Console.Clear();
         MenuScreen.Bordas();

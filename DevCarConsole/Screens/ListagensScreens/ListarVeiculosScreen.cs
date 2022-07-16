@@ -4,7 +4,7 @@ namespace DevCarConsole.Screens.ListagensScreens;
 
 public class ListarVeiculosScreen
 {
-    public static void Iniciar(VeiculoRepository repository)
+    public static void Iniciar(IList<Veiculo> repository)
     {
         Console.Clear();
         MenuScreen.Bordas();
@@ -52,7 +52,7 @@ public class ListarVeiculosScreen
 
     }
 
-    public static void ListarMotoTriciclo(VeiculoRepository repository)
+    public static void ListarMotoTriciclo(IList<Veiculo> repository)
     {
         Console.Clear();
 
@@ -62,7 +62,7 @@ public class ListarVeiculosScreen
 
         
 
-        if(repository.ListaDeVeiculos.Count == 0)
+        if(repository.Count == 0)
         {
             System.Console.WriteLine("Não há Motos / Triciclo na Lista!");
             System.Console.Write(Environment.NewLine);
@@ -72,7 +72,7 @@ public class ListarVeiculosScreen
         }
         else
         {
-            foreach (var veiculo in repository.ListaDeVeiculos)
+            foreach (var veiculo in repository)
             {
                 if(veiculo.Categoria == "Moto / Triciclo")
                 {
@@ -90,7 +90,7 @@ public class ListarVeiculosScreen
         ListarVeiculosScreen.Iniciar(repository);
         
     }
-    public static void ListarCarroPasseio(VeiculoRepository repository)
+    public static void ListarCarroPasseio(IList<Veiculo> repository)
     {
         Console.Clear();
 
@@ -98,7 +98,7 @@ public class ListarVeiculosScreen
         System.Console.WriteLine("======================================");
         System.Console.Write(Environment.NewLine);
 
-        if(repository.ListaDeVeiculos.Count == 0)
+        if(repository.Count == 0)
         {
             System.Console.WriteLine("Não há Carros na Lista!");
             System.Console.Write(Environment.NewLine);
@@ -108,7 +108,7 @@ public class ListarVeiculosScreen
         }
         else
         {
-            foreach (var veiculo in repository.ListaDeVeiculos)
+            foreach (var veiculo in repository)
             {
                 if(veiculo.Categoria == "Carro Passeio")
                 {
@@ -126,7 +126,7 @@ public class ListarVeiculosScreen
         ListarVeiculosScreen.Iniciar(repository);
         
     }
-    public static void ListarCaminhonete(VeiculoRepository repository)
+    public static void ListarCaminhonete(IList<Veiculo> repository)
     {
         Console.Clear();
 
@@ -134,7 +134,7 @@ public class ListarVeiculosScreen
         System.Console.WriteLine("======================================");
         System.Console.Write(Environment.NewLine);
 
-        if(repository.ListaDeVeiculos.Count == 0)
+        if(repository.Count == 0)
         {
             System.Console.WriteLine("Não há Camihonetes na Lista!");
             System.Console.Write(Environment.NewLine);
@@ -144,7 +144,7 @@ public class ListarVeiculosScreen
         }
         else
         {
-            foreach (var veiculo in repository.ListaDeVeiculos)
+            foreach (var veiculo in repository)
             {
                 if(veiculo.Categoria == "Caminhonete")
                 {
@@ -163,7 +163,7 @@ public class ListarVeiculosScreen
         
     }
 
-    static void ListarTodosVeiculos(VeiculoRepository repository)
+    static void ListarTodosVeiculos(IList<Veiculo> repository)
     {
         Console.Clear();
 
@@ -171,7 +171,7 @@ public class ListarVeiculosScreen
         System.Console.WriteLine("===================================");
         System.Console.Write(Environment.NewLine);
 
-        if (repository.ListaDeVeiculos.Count == 0)
+        if (repository.Count == 0)
         {
             System.Console.WriteLine("Não há Veículos na Lista!");
             System.Console.Write(Environment.NewLine);
@@ -181,7 +181,7 @@ public class ListarVeiculosScreen
         }
         else
         {
-            foreach (var veiculo in repository.ListaDeVeiculos)
+            foreach (var veiculo in repository)
             {
                 System.Console.WriteLine(veiculo.ListarInformacoes());
 

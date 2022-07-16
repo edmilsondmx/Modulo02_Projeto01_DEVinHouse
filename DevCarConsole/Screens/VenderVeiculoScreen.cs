@@ -1,4 +1,5 @@
 using System.Text.RegularExpressions;
+using DevCarConsole.Models;
 using DevCarConsole.Repositories;
 using DevCarConsole.Validacoes;
 
@@ -6,7 +7,7 @@ namespace DevCarConsole.Screens;
 
 public class VenderVeiculoScreen
 {
-    public static void Iniciar(VeiculoRepository repository)
+    public static void Iniciar(IList<Veiculo> repository)
     {
         Console.Clear();
         MenuScreen.Bordas();
@@ -24,7 +25,7 @@ public class VenderVeiculoScreen
         string placa = Console.ReadLine()!.ToUpper();
         ValidacaoPlaca.ValidarFormatoPlaca(placa, repository);
 
-        foreach (var veiculo in repository.ListaDeVeiculos)
+        foreach (var veiculo in repository)
         {
             if(veiculo.Placa == placa)
             {

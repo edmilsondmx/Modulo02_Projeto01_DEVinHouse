@@ -1,3 +1,4 @@
+using DevCarConsole.Models;
 using DevCarConsole.Repositories;
 using DevCarConsole.Validacoes;
 
@@ -5,7 +6,7 @@ namespace DevCarConsole.Screens;
 
 public class AlterarInformacoesScreen
 {
-    public static void Iniciar(VeiculoRepository repository)
+    public static void Iniciar(IList<Veiculo> repository)
     {
         Console.Clear();
         MenuScreen.Bordas();
@@ -23,7 +24,7 @@ public class AlterarInformacoesScreen
         string placa = Console.ReadLine()!;
         ValidacaoPlaca.ValidarFormatoPlaca(placa.ToUpper(), repository);
 
-        foreach (var veiculo in repository.ListaDeVeiculos)
+        foreach (var veiculo in repository)
         {
             if(veiculo.Placa == placa.ToUpper())
             {

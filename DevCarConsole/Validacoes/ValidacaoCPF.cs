@@ -1,3 +1,4 @@
+using DevCarConsole.Models;
 using DevCarConsole.Repositories;
 using DevCarConsole.Screens;
 
@@ -5,7 +6,7 @@ namespace DevCarConsole.Validacoes;
 
 public static class ValidacaoCPF
 {
-    public static void ValidarCPF(string numCpf, VeiculoRepository repository)
+    public static void ValidarCPF(string numCpf, IList<Veiculo> repository)
 
     {
         if (numCpf.Length != 11)
