@@ -1,7 +1,6 @@
 using DevCarConsole.Models;
-using DevCarConsole.Repositories;
+using DevCarConsole.Reports;
 using DevCarConsole.Screens.ListagensScreens;
-using DevCarConsole.Validacoes;
 
 namespace DevCarConsole.Screens;
 
@@ -17,7 +16,6 @@ public static class MenuScreen
         try
         {
             opcoes = ushort.Parse(Console.ReadLine()!);
-            
         }
         catch(Exception ex)
         {
@@ -55,7 +53,7 @@ public static class MenuScreen
         System.Console.WriteLine("2 - Alterar Informações do Veículo");
 
         Console.SetCursorPosition(2, 6);
-        System.Console.WriteLine("3 - Listar Todos os Veículos");
+        System.Console.WriteLine("3 - Listar Veículos");
 
         Console.SetCursorPosition(2, 7);
         System.Console.WriteLine("4 - Vender Veículo");

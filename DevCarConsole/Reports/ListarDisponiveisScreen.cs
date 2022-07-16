@@ -1,8 +1,8 @@
 using DevCarConsole.Models;
-using DevCarConsole.Repositories;
-using DevCarConsole.Validacoes;
+using DevCarConsole.Screens;
+using DevCarConsole.Validations;
 
-namespace DevCarConsole.Screens.ListagensScreens;
+namespace DevCarConsole.Reports;
 
 public static class ListarDisponiveisScreen
 {

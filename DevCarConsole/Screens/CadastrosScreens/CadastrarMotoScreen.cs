@@ -1,5 +1,4 @@
-using DevCarConsole.Validacoes;
-using DevCarConsole.Repositories;
+using DevCarConsole.Validations;
 using DevCarConsole.Models;
 using System.Text.RegularExpressions;
 
@@ -19,18 +18,27 @@ public static class CadastrarMotoScreen
 
         Console.SetCursorPosition(2, 4);
         System.Console.Write("Data de Fabricação: ");
-        DateTime dataFabricacao = DateTime.Parse(Console.ReadLine()!);
+        DateTime dataFabricacao;
+        
+        try
+        {
+            dataFabricacao = DateTime.Parse(Console.ReadLine()!);
+        }
+        catch(FormatException ex)
+        {
+            throw new Exception($"Formato inválido. Digite a placa Corretamente (dd/mm/aaaa). {ex.Message}");
+        }
 
         Console.SetCursorPosition(2, 5);
         System.Console.Write("Marca / Modelo: ");
-        string marcaModelo = Console.ReadLine()!;
+        string marcaModelo = Console.ReadLine()!.ToUpper();
         ValidarInput.ValidacaoDeInput(marcaModelo);
 
         Console.SetCursorPosition(2, 6);
         System.Console.Write("Placa: ");
-        string placa = Console.ReadLine()!;
-        string placaTrim = Regex.Replace(placa, @"\s", "").ToUpper();
-        ValidacaoPlaca.ValidarPlaca(placaTrim, repository);
+        string placa = Console.ReadLine()!.ToUpper();
+        string placaTrim = Regex.Replace(placa, @"\s", "");
+        ValidacaoPlaca.ValidarPlaca(placa, repository);
 
 
         Console.SetCursorPosition(2, 7);
@@ -41,14 +49,17 @@ public static class CadastrarMotoScreen
         Console.SetCursorPosition(2, 8);
         System.Console.Write("Cor: ");
         string cor = Console.ReadLine()!;
+        ValidarInput.ValidacaoDeInput(cor);
 
         Console.SetCursorPosition(2, 9);
         System.Console.Write("Potência: ");
         string potencia = Console.ReadLine()!;
+        ValidarInput.ValidacaoDeInput(potencia);
 
         Console.SetCursorPosition(2, 10);
         System.Console.Write("Quantidade de Rodas: ");
         string qtdRodas = Console.ReadLine()!;
+        ValidarInput.ValidacaoDeInput(qtdRodas);
 
         repository.Add(new MotoTriciclo(dataFabricacao, marcaModelo, placaTrim, valor, cor, potencia, qtdRodas));
 
@@ -65,7 +76,7 @@ public static class CadastrarMotoScreen
         System.Console.WriteLine("=================================================================================");
 
         System.Console.Write(Environment.NewLine);
-        System.Console.WriteLine("Pressione ENTER para voltar ao Menu Principal");
+        System.Console.WriteLine("Pressione ENTER para voltar ao Menu Anterior!");
 
         Console.ReadLine();
         CadastrarVeiculoScreen.Iniciar(repository);

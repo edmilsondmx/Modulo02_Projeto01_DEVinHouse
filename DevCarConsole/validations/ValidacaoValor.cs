@@ -1,8 +1,7 @@
 using DevCarConsole.Models;
-using DevCarConsole.Repositories;
 using DevCarConsole.Screens;
 
-namespace DevCarConsole.Validacoes;
+namespace DevCarConsole.Validations;
 
 public static class ValidacaoValor
 {

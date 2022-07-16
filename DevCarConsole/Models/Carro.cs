@@ -2,13 +2,10 @@ namespace DevCarConsole.Models;
 
 public class Carro : Veiculo
 {
-    public string? TotalPortas { get; set; }
-    public string? Combustivel { get; set; }
-    public Carro()
-    {
-    }
+    public string TotalPortas { get; private set; }
+    public string Combustivel { get; private set; }
 
-    public Carro(DateTime dataFabricacao, string? nome, string? placa, decimal valor, string? cor, string? potencia, string? totalPortas, string? combustivel) : base(dataFabricacao, nome, placa, valor, cor, potencia)
+    public Carro(DateTime dataFabricacao, string nome, string placa, decimal valor, string cor, string potencia, string totalPortas, string combustivel) : base(dataFabricacao, nome, placa, valor, cor, potencia)
     {
         Categoria = "Carro Passeio";
         TotalPortas = totalPortas;

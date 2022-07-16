@@ -1,5 +1,6 @@
 using DevCarConsole.Models;
-using DevCarConsole.Repositories;
+using DevCarConsole.Reports;
+
 namespace DevCarConsole.Screens.ListagensScreens;
 
 public class ListarVeiculosScreen
@@ -10,13 +11,22 @@ public class ListarVeiculosScreen
         MenuScreen.Bordas();
         Opcoes();
 
-        var opcoes = short.Parse(Console.ReadLine()!);
+        ushort opcoes;
+        try
+        {
+            opcoes = ushort.Parse(Console.ReadLine()!);
+        }
+        catch(Exception ex)
+        {
+            System.Console.WriteLine(Environment.NewLine);
+            throw new Exception($"Formato de dado inválido. Escolha uma das opções.{ex.Message}");
+        }
         switch (opcoes)
         {
-            case 1: ListarMotoTriciclo(repository); break;
-            case 2: ListarCarroPasseio(repository); break;
-            case 3: ListarCaminhonete(repository); break;
-            case 4: ListarTodosVeiculos(repository);  break;
+            case 1: ListarMotosScreen.ListarMotoTriciclo(repository); break;
+            case 2: ListarCarrosScreen.ListarCarroPasseio(repository); break;
+            case 3: ListarCaminhonetesScreen.ListarCaminhonete(repository); break;
+            case 4: ListarTodosScreen.ListarTodosVeiculos(repository);  break;
             case 0: MenuScreen.Iniciar(repository); break;
             default: break;
         }
@@ -52,148 +62,4 @@ public class ListarVeiculosScreen
 
     }
 
-    public static void ListarMotoTriciclo(IList<Veiculo> repository)
-    {
-        Console.Clear();
-
-        System.Console.WriteLine("Lista de Motos / Triciclos Cadastrados");
-        System.Console.WriteLine("======================================");
-        System.Console.Write(Environment.NewLine);
-
-        
-
-        if(repository.Count == 0)
-        {
-            System.Console.WriteLine("Não há Motos / Triciclo na Lista!");
-            System.Console.Write(Environment.NewLine);
-            System.Console.WriteLine("Pressione ENTER para voltar ao Menu Anterior!");
-            Console.ReadLine();
-            ListarVeiculosScreen.Iniciar(repository);
-        }
-        else
-        {
-            foreach (var veiculo in repository)
-            {
-                if(veiculo.Categoria == "Moto / Triciclo")
-                {
-                    System.Console.WriteLine(veiculo.ListarInformacoes());
-
-                    Console.ForegroundColor = ConsoleColor.Green;
-
-                    System.Console.WriteLine("=======================================================================================================================");
-                }
-            }
-        }
-        System.Console.Write(Environment.NewLine);
-        System.Console.WriteLine("Pressione ENTER para voltar ao Menu Anterior!");
-        Console.ReadLine();
-        ListarVeiculosScreen.Iniciar(repository);
-        
-    }
-    public static void ListarCarroPasseio(IList<Veiculo> repository)
-    {
-        Console.Clear();
-
-        System.Console.WriteLine("Lista de Carros de passeio Cadastrados");
-        System.Console.WriteLine("======================================");
-        System.Console.Write(Environment.NewLine);
-
-        if(repository.Count == 0)
-        {
-            System.Console.WriteLine("Não há Carros na Lista!");
-            System.Console.Write(Environment.NewLine);
-            System.Console.WriteLine("Pressione ENTER para voltar ao Menu Anterior!");
-            Console.ReadLine();
-            ListarVeiculosScreen.Iniciar(repository);
-        }
-        else
-        {
-            foreach (var veiculo in repository)
-            {
-                if(veiculo.Categoria == "Carro Passeio")
-                {
-                    System.Console.WriteLine(veiculo.ListarInformacoes());
-
-                    Console.ForegroundColor = ConsoleColor.Green;
-
-                    System.Console.WriteLine("=======================================================================================================================");
-                }
-            }
-        }
-        System.Console.Write(Environment.NewLine);
-        System.Console.WriteLine("Pressione ENTER para voltar ao Menu Anterior!");
-        Console.ReadLine();
-        ListarVeiculosScreen.Iniciar(repository);
-        
-    }
-    public static void ListarCaminhonete(IList<Veiculo> repository)
-    {
-        Console.Clear();
-
-        System.Console.WriteLine("Lista de Caminhotetes Cadastradas");
-        System.Console.WriteLine("======================================");
-        System.Console.Write(Environment.NewLine);
-
-        if(repository.Count == 0)
-        {
-            System.Console.WriteLine("Não há Camihonetes na Lista!");
-            System.Console.Write(Environment.NewLine);
-            System.Console.WriteLine("Pressione ENTER para voltar ao Menu Anterior!");
-            Console.ReadLine();
-            ListarVeiculosScreen.Iniciar(repository);
-        }
-        else
-        {
-            foreach (var veiculo in repository)
-            {
-                if(veiculo.Categoria == "Caminhonete")
-                {
-                    System.Console.WriteLine(veiculo.ListarInformacoes());
-
-                    Console.ForegroundColor = ConsoleColor.Green;
-
-                    System.Console.WriteLine("=======================================================================================================================");
-                }
-            }
-        }
-        System.Console.Write(Environment.NewLine);
-        System.Console.WriteLine("Pressione ENTER para voltar ao Menu Anterior!");
-        Console.ReadLine();
-        ListarVeiculosScreen.Iniciar(repository);
-        
-    }
-
-    static void ListarTodosVeiculos(IList<Veiculo> repository)
-    {
-        Console.Clear();
-
-        System.Console.WriteLine("Lista de Todos Veículos Cadastrados");
-        System.Console.WriteLine("===================================");
-        System.Console.Write(Environment.NewLine);
-
-        if (repository.Count == 0)
-        {
-            System.Console.WriteLine("Não há Veículos na Lista!");
-            System.Console.Write(Environment.NewLine);
-            System.Console.WriteLine("Pressione ENTER para voltar ao Menu Anterior!");
-            Console.ReadLine();
-            ListarVeiculosScreen.Iniciar(repository);
-        }
-        else
-        {
-            foreach (var veiculo in repository)
-            {
-                System.Console.WriteLine(veiculo.ListarInformacoes());
-
-                Console.ForegroundColor = ConsoleColor.Green;
-
-                System.Console.WriteLine("=======================================================================================================================");
-                
-            }
-            System.Console.Write(Environment.NewLine);
-            System.Console.WriteLine("Pressione ENTER para voltar ao Menu Anterior!");
-            Console.ReadLine();
-            ListarVeiculosScreen.Iniciar(repository);
-        }
-    }
 }

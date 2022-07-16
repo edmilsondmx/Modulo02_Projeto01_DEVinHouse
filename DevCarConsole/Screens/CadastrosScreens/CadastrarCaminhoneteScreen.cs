@@ -1,5 +1,4 @@
-using DevCarConsole.Validacoes;
-using DevCarConsole.Repositories;
+using DevCarConsole.Validations;
 using DevCarConsole.Models;
 using System.Text.RegularExpressions;
 
@@ -19,17 +18,27 @@ public static class CadastrarCaminhoneteScreen
 
         Console.SetCursorPosition(2, 4);
         System.Console.Write("Data de Fabricação: ");
-        DateTime dataFabricacao = DateTime.Parse(Console.ReadLine()!);
+        DateTime dataFabricacao;
+        
+        try
+        {
+            dataFabricacao = DateTime.Parse(Console.ReadLine()!);
+        }
+        catch(FormatException ex)
+        {
+            throw new Exception($"Formato inválido. Digite a placa Corretamente (dd/mm/aaaa). {ex.Message}");
+        }
 
         Console.SetCursorPosition(2, 5);
         System.Console.Write("Marca / Modelo: ");
-        string marcaModelo = Console.ReadLine()!;
+        string marcaModelo = Console.ReadLine()!.ToUpper();
+        ValidarInput.ValidacaoDeInput(marcaModelo);
 
         Console.SetCursorPosition(2, 6);
         System.Console.Write("Placa: ");
-        string placa = Console.ReadLine()!;
-        string placaTrim = Regex.Replace(placa, @"\s", "").ToUpper();
-        ValidacaoPlaca.ValidarPlaca(placaTrim, repository);
+        string placa = Console.ReadLine()!.ToUpper();
+        string placaTrim = Regex.Replace(placa, @"\s", "");
+        ValidacaoPlaca.ValidarPlaca(placa, repository);
 
         Console.SetCursorPosition(2, 7);
         System.Console.Write("Valor: ");
@@ -39,20 +48,24 @@ public static class CadastrarCaminhoneteScreen
         Console.SetCursorPosition(2, 8);
         System.Console.Write("Quantidade de Portas: ");
         string qtdPortas = Console.ReadLine()!;
+        ValidarInput.ValidacaoDeInput(qtdPortas);
 
         Console.SetCursorPosition(2, 9);
         System.Console.Write("Capacidade da Caçamba: ");
         string cacamba = Console.ReadLine()!;
+        ValidarInput.ValidacaoDeInput(cacamba);
 
         Console.SetCursorPosition(2, 10);
         System.Console.Write("Potência: ");
         string potencia = Console.ReadLine()!;
+        ValidarInput.ValidacaoDeInput(potencia);
 
         Console.SetCursorPosition(2, 11);
         System.Console.Write("Combustível: ");
         string combustivel = Console.ReadLine()!;
+        ValidarInput.ValidacaoDeInput(combustivel);
 
-        repository.Add(new Caminhonete(dataFabricacao, marcaModelo, placaTrim, valor, qtdPortas, cacamba, potencia, combustivel));
+        repository.Add(new Caminhonete(dataFabricacao, marcaModelo, placaTrim, valor, potencia, qtdPortas, cacamba, combustivel));
 
         Console.Clear();
         System.Console.WriteLine("Caminhonete Cadastrado com sucesso!");

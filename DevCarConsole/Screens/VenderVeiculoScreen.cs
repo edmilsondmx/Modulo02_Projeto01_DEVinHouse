@@ -1,7 +1,5 @@
-using System.Text.RegularExpressions;
 using DevCarConsole.Models;
-using DevCarConsole.Repositories;
-using DevCarConsole.Validacoes;
+using DevCarConsole.Validations;
 
 namespace DevCarConsole.Screens;
 

@@ -1,9 +1,10 @@
+using System.Text.RegularExpressions;
 using DevCarConsole.Models;
 using DevCarConsole.Repositories;
 using DevCarConsole.Screens;
 using DevCarConsole.Screens.ListagensScreens;
 
-namespace DevCarConsole.Validacoes;
+namespace DevCarConsole.Validations;
 
 public static class ValidarVendido
 {
@@ -71,5 +72,29 @@ public static class ValidarVendido
             
             ListarVendidosScreen.Iniciar(repository);
         }
+    }
+
+    public static Veiculo VaidarSeOVeiculoJaFoiVendido(string placa)
+    {
+        string placaTrim = Regex.Replace(placa, @"\s", "").ToUpper();
+        Veiculo? existeVeiculo = VeiculoRepository.ListaDeVeiculos.Where(veiculo => veiculo.Placa == placaTrim).ToList().FirstOrDefault();
+
+        if(existeVeiculo?.ValorVenda != 0)
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.SetCursorPosition(2, 7);
+            System.Console.WriteLine("Veículo já vendido!");
+            Console.SetCursorPosition(2, 8);
+            System.Console.WriteLine("Insira outro veículo cadastrado!");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.SetCursorPosition(2, 11);
+            System.Console.Write("Pressione ENTER para ");
+            Console.SetCursorPosition(2, 12);
+            System.Console.Write("voltar ao Menu Principal");
+            Console.ReadLine();
+            MenuScreen.Iniciar(VeiculoRepository.ListaDeVeiculos);
+        }
+        
+        return existeVeiculo!;
     }
 }

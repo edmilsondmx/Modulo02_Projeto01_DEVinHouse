@@ -1,8 +1,7 @@
 using DevCarConsole.Models;
-using DevCarConsole.Repositories;
 using DevCarConsole.Screens;
 
-namespace DevCarConsole.Validacoes;
+namespace DevCarConsole.Validations;
 
 public static class ValidacaoCPF
 {
@@ -24,6 +23,21 @@ public static class ValidacaoCPF
             Console.ReadLine();
             MenuScreen.Iniciar(repository);
         }
+        try
+        {
+            int[] numeros = new int[11];
 
+            for (int i = 0; i < 11; i++)
+            {
+                numeros[i] = int.Parse(numCpf[i].ToString());
+                
+            }
+        }
+        catch (FormatException ex)
+        {
+            System.Console.WriteLine(Environment.NewLine);
+            throw new Exception($"Formato inválido, apenas número. {ex.Message}");
+        }
+        
     }
 }

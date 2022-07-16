@@ -1,16 +1,15 @@
-
 using System.Text.RegularExpressions;
 using DevCarConsole.Models;
-using DevCarConsole.Repositories;
 using DevCarConsole.Screens;
 
-namespace DevCarConsole.Validacoes;
+namespace DevCarConsole.Validations;
 
 public static class ValidacaoPlaca
 {
     public static void ValidarPlaca(string placa, IList<Veiculo> repository)
     {
-        if(placa.Length != 7)
+        string placaTrim = Regex.Replace(placa, @"\s", "");
+        if(placaTrim.Length != 7)
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.SetCursorPosition(2, 8);
@@ -25,26 +24,26 @@ public static class ValidacaoPlaca
             Console.ReadLine();
             CadastrarVeiculoScreen.Iniciar(repository);
         }
-        foreach (var veiculo in repository)
+
+        var notFound = repository.Where(veiculo => veiculo.Placa == placaTrim).FirstOrDefault();
+        if(notFound != null)
         {
-            if(veiculo.Placa == placa)
-            {
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.SetCursorPosition(2, 8);
-                System.Console.WriteLine("Placa já Cadastrada no sistema!");
-  
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.SetCursorPosition(2, 10);
-                System.Console.WriteLine(@"Pressione ENTER para 
-                voltar ao Menu Anterior");
-                Console.ReadLine();
-                CadastrarVeiculoScreen.Iniciar(repository);
-            }            
-        }
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.SetCursorPosition(2, 8);
+            System.Console.WriteLine("Placa já Cadastrada no sistema!");
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.SetCursorPosition(2, 10);
+            System.Console.WriteLine(@"Pressione ENTER para 
+            voltar ao Menu Anterior");
+            Console.ReadLine();
+            CadastrarVeiculoScreen.Iniciar(repository);
+        }            
     }
     public static void ValidarFormatoPlaca(string placa, IList<Veiculo> repository)
     {
-        if(placa.Length != 7)
+        string placaTrim = Regex.Replace(placa, @"\s", "");
+        if(placaTrim.Length != 7)
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.SetCursorPosition(2, 8);
@@ -60,7 +59,7 @@ public static class ValidacaoPlaca
             MenuScreen.Iniciar(repository);
         }
 
-        var notFound = (repository.Where(veiculo => veiculo.Placa == placa)).FirstOrDefault();
+        var notFound = (repository.Where(veiculo => veiculo.Placa == placaTrim)).FirstOrDefault();
 
         if(notFound == null)
         {

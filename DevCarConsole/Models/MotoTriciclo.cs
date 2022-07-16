@@ -2,12 +2,9 @@ namespace DevCarConsole.Models;
 
 public class MotoTriciclo : Veiculo
 {
-    public string? QuantidadeRodas { get; set; }
-    public MotoTriciclo()
-    {
-    }
+    public string QuantidadeRodas { get; private set; }
 
-    public MotoTriciclo(DateTime dataFabricacao, string? nome, string? placa, decimal valor, string? cor, string? potencia, string? qtdRodas) : base(dataFabricacao, nome, placa, valor, cor, potencia)
+    public MotoTriciclo(DateTime dataFabricacao, string nome, string placa, decimal valor, string cor, string potencia, string qtdRodas) : base(dataFabricacao, nome, placa, valor, cor, potencia)
     {
         Categoria = "Moto / Triciclo";
         QuantidadeRodas = qtdRodas;

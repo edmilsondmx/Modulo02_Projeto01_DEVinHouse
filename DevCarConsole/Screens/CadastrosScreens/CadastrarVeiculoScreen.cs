@@ -1,5 +1,4 @@
 using DevCarConsole.Models;
-using DevCarConsole.Repositories;
 using DevCarConsole.Screens.CadastrosScreens;
 
 namespace DevCarConsole.Screens;
@@ -12,7 +11,16 @@ public static class CadastrarVeiculoScreen
         MenuScreen.Bordas();
         Opcoes();
 
-        var opcoes = short.Parse(Console.ReadLine()!);
+        ushort opcoes;
+        try
+        {
+            opcoes = ushort.Parse(Console.ReadLine()!);
+        }
+        catch(Exception ex)
+        {
+            System.Console.WriteLine(Environment.NewLine);
+            throw new Exception($"Formato de dado inválido. Escolha uma das opções.{ex.Message}");
+        }
         switch (opcoes)
         {
             case 1: CadastrarMotoScreen.MotoTriciclo(repository); break;

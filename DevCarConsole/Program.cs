@@ -3,7 +3,7 @@ using DevCarConsole.Models;
 using DevCarConsole.Screens;
 namespace DevCarConsole;
 
-public class Program
+internal static class Program
 {
     static void Main(string[] args)
     {
@@ -11,7 +11,7 @@ public class Program
         MenuScreen.Iniciar(VeiculoRepository.ListaDeVeiculos);
     }
 
-    static void PopularLista(IList<Veiculo> repository)
+    private static void PopularLista(IList<Veiculo> repository)
     {
         //Populando com lista estática
         repository.Add(new MotoTriciclo(new DateTime(2022, 05, 22), "HONDA CB", "EDI8564", 15800m, "Preto", "250", "2"));
