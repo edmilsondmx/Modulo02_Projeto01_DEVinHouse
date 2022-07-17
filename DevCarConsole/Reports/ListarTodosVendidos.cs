@@ -21,7 +21,7 @@ public static class ListarTodosVendidos
         {
             if(veiculo?.CpfComprador != null)
             {
-                ListarVendidosScreen.MostrarInformacoes(veiculo);
+                ListarVendidosScreen.MostrarInformacoes(veiculo!);
             }
         }
 

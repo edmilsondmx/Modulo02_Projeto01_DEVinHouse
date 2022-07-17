@@ -11,27 +11,24 @@ public class Veiculo
     public string CpfComprador { get; set; } = null!;
     public string? Cor { get; set; }
     public decimal ValorVenda = 0;
-    public string Potencia { get; private set; }
 
     public DateTime DataVenda { get; private set; }
 
 
-    public Veiculo(DateTime dataFabricacao, string nome, string placa, decimal valor, string cor, string potencia)
+    public Veiculo(DateTime dataFabricacao, string nome, string placa, decimal valor, string cor)
     {
         DataFabricacao = dataFabricacao;
         Nome = nome;
         Placa = placa;
         Valor = valor;
         Cor = cor;
-        Potencia = potencia;
     }
-    public Veiculo(DateTime dataFabricacao, string nome, string placa, decimal valor, string potencia)
+    public Veiculo(DateTime dataFabricacao, string nome, string placa, decimal valor)
     {
         DataFabricacao = dataFabricacao;
         Nome = nome;
         Placa = placa;
         Valor = valor;
-        Potencia = potencia;
     }
 
     public void VenderVeiculo(string cpfComprador, decimal valorVenda)
@@ -52,7 +49,7 @@ public class Veiculo
         Console.ForegroundColor = ConsoleColor.White;
 
         return $@"Veículo: {Nome.ToUpper()} | Cor: {char.ToUpper(Cor![0]) + Cor.Substring(1)} | Placa: {Placa.ToUpper()} | Valor Estoque: {Valor.ToString("c")}
-Data Fabricação: {DataFabricacao.ToString("d")} | Chassi: {NumChassi.ToUpper()} | Potencia: {Potencia}cv";
+Data Fabricação: {DataFabricacao.ToString("d")} | Chassi: {NumChassi.ToUpper()}";
     }
        
 }

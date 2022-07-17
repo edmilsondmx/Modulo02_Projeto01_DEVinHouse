@@ -15,9 +15,12 @@ public static class ListarCarrosScreen
 
         var carros = repository.Where(w => w.Categoria == "Carro Passeio").ToList();
 
-        if(carros == null)
+        if(carros.Count == 0)
         {
+            Console.ForegroundColor = ConsoleColor.White;
             System.Console.WriteLine("Não há Carros na Lista!");
+            
+            Console.ForegroundColor = ConsoleColor.Green;
             System.Console.Write(Environment.NewLine);
             System.Console.WriteLine("Pressione ENTER para voltar ao Menu Anterior!");
             Console.ReadLine();
@@ -30,7 +33,7 @@ public static class ListarCarrosScreen
 
             Console.ForegroundColor = ConsoleColor.Green;
 
-            System.Console.WriteLine("=======================================================================================================================");
+            System.Console.WriteLine("==================================================================================");
             
         }
         

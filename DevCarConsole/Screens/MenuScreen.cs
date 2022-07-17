@@ -37,7 +37,7 @@ public static class MenuScreen
 
     }
 
-    static void Opcoes()
+    private static void Opcoes()
     {
         Console.SetCursorPosition(2, 1);
         System.Console.WriteLine("Seja bem vindo ao DevCar v1.0");
@@ -89,7 +89,7 @@ public static class MenuScreen
         }
         LinhaHoriziontal(); 
     }
-    static void LinhaHoriziontal()
+    public static void LinhaHoriziontal()
     {
         Console.Write("+");
         for (int i = 0; i <= 40; i++)
@@ -99,7 +99,7 @@ public static class MenuScreen
         Console.Write(Environment.NewLine);
     }
 
-    public static void Animacao()
+    private static void Animacao()
     {
         Console.SetCursorPosition(40, 1);
         System.Console.WriteLine(@"                  _________________");

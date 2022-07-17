@@ -24,15 +24,19 @@ public class ListarVendidosScreen
         }
         switch (opcoes)
         {
-            case 1: ListarTodosVendidos.ListarTodosVeiculosVendidos(repository); break;
-            case 2: ListarVendidoMaiorValor.ListarVeiculoVendidoMaiorValor(repository); break;
-            case 3: ListarVendidoMenorValor.ListarVeiculoVendidoMenorValor(repository); break;
+            
+            case 1: ListarVendidoCategoria.ListarMotosVendidas(repository); break;
+            case 2: ListarVendidoCategoria.ListarCarrosVendidos(repository); break;
+            case 3: ListarVendidoCategoria.ListarCaminhonetesVendidas(repository); break;
+            case 4: ListarTodosVendidos.ListarTodosVeiculosVendidos(repository); break;
+            case 5: ListarVendidoMaiorValor.ListarVeiculoVendidoMaiorValor(repository); break;
+            case 6: ListarVendidoMenorValor.ListarVeiculoVendidoMenorValor(repository); break;
             case 0: MenuScreen.Iniciar(repository); break;
             default: break;
         }
 
     }
-    static void Opcoes()
+    private static void Opcoes()
     {
         Console.SetCursorPosition(2, 1);
         System.Console.WriteLine("Qual das listas a seguir deseja?");
@@ -40,18 +44,27 @@ public class ListarVendidosScreen
         System.Console.WriteLine("================================");
 
         Console.SetCursorPosition(2, 4);
-        System.Console.WriteLine("1 - Todos veículos vendidos");
+        System.Console.WriteLine("1 - Motos / Triciclos vendidos");
 
         Console.SetCursorPosition(2, 5);
-        System.Console.WriteLine("2 - Veículo vendido com maior preço");
+        System.Console.WriteLine("2 - Carros de Passeio vendidos");
 
         Console.SetCursorPosition(2, 6);
-        System.Console.WriteLine("3 - Veículo vendido com menor preço");
+        System.Console.WriteLine("3 - Caminhonetes vendidas");
+
+        Console.SetCursorPosition(2, 7);
+        System.Console.WriteLine("4 - Todos veículos vendidos");
 
         Console.SetCursorPosition(2, 8);
+        System.Console.WriteLine("5 - Veículo vendido com maior Valor");
+
+        Console.SetCursorPosition(2, 9);
+        System.Console.WriteLine("6 - Veículo vendido com menor Valor");
+
+        Console.SetCursorPosition(2, 11);
         System.Console.WriteLine("0 - Voltar ao Menu Principal");
 
-        Console.SetCursorPosition(2, 10);
+        Console.SetCursorPosition(2, 12);
         System.Console.Write("Digite a opção: ");
 
     }
@@ -64,6 +77,6 @@ public class ListarVendidosScreen
         System.Console.WriteLine($"Data e hora da venda: {veiculo.DataVenda}");
 
         Console.ForegroundColor = ConsoleColor.Green;
-        System.Console.WriteLine("=======================================================================================================================");
+        System.Console.WriteLine("==================================================================================");
     }
 }

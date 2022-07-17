@@ -2,17 +2,20 @@ namespace DevCarConsole.Models;
 
 public class Caminhonete : Veiculo
 {
+    public string Potencia { get; private set; }
     public string TotalPortas { get; private set; }
     public string CapacidadeCacamba { get; private set; }
     public string Combustivel { get; private set; }
 
-    public Caminhonete(DateTime dataFabricacao, string nome, string placa, decimal valor, string potencia, string totalPortas, string capacidadeCacamba,  string combustivel) : base(dataFabricacao, nome, placa, valor, potencia)
+    public Caminhonete(DateTime dataFabricacao, string nome, string placa, decimal valor, string potencia, string totalPortas, string capacidadeCacamba,  string combustivel) : base(dataFabricacao, nome, placa, valor)
     {
         Categoria = "Caminhonete";
         Cor = "Roxa";
+        Potencia = potencia;
         TotalPortas = totalPortas;
         CapacidadeCacamba = capacidadeCacamba;
         Combustivel = combustivel;
+        
     }
 
     public override void AlterarInformacoes(decimal valor, string cor)
@@ -33,7 +36,7 @@ public class Caminhonete : Veiculo
 
     public override string ListarInformacoes()
     {
-        return $@"{base.ListarInformacoes()}
+        return $@"{base.ListarInformacoes()} | Potencia: {Potencia}cv
 Quantidade de Portas: {TotalPortas} | Combustível: {char.ToUpper(Combustivel![0]) + Combustivel.Substring(1)} | Capacidade Caçamba: {CapacidadeCacamba}lt";;
     }
 }

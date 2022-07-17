@@ -26,7 +26,7 @@ public static class ValidarVendido
             System.Console.WriteLine("Não há veículo Vendidos na lista!");
 
             Console.ForegroundColor = ConsoleColor.Green;
-            System.Console.WriteLine("================================ ");
+            System.Console.WriteLine("=================================");
         }
         return;
     }
@@ -42,13 +42,13 @@ public static class ValidarVendido
 
                 Console.ForegroundColor = ConsoleColor.Green;
 
-                System.Console.WriteLine("=======================================================================================================================");
+                System.Console.WriteLine("==================================================================================");
             }
             
         }
         if(quantidadeVeiculos)
         {
-            
+            Console.ForegroundColor = ConsoleColor.White;
             System.Console.WriteLine("Não há veículo disponíveis na lista!");
             Console.ForegroundColor = ConsoleColor.Green;
 

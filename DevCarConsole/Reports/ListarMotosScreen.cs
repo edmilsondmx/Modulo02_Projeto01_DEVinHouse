@@ -15,9 +15,12 @@ public static class ListarMotosScreen
 
         var motos = repository.Where(w => w.Categoria == "Moto / Triciclo").ToList();
 
-        if(motos == null)
+        if(motos.Count == 0)
         {
+            Console.ForegroundColor = ConsoleColor.White;
             System.Console.WriteLine("Não há Motos / Triciclo na Lista!");
+
+            Console.ForegroundColor = ConsoleColor.Green;
             System.Console.Write(Environment.NewLine);
             System.Console.WriteLine("Pressione ENTER para voltar ao Menu Anterior!");
             Console.ReadLine();
@@ -29,7 +32,7 @@ public static class ListarMotosScreen
 
             Console.ForegroundColor = ConsoleColor.Green;
 
-            System.Console.WriteLine("=======================================================================================================================");
+            System.Console.WriteLine("==================================================================================");
         }
         
         System.Console.Write(Environment.NewLine);

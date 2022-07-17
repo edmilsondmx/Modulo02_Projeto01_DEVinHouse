@@ -15,7 +15,10 @@ public static class ListarTodosScreen
 
         if (repository.Count == 0)
         {
+            Console.ForegroundColor = ConsoleColor.White;
             System.Console.WriteLine("Não há Veículos na Lista!");
+
+            Console.ForegroundColor = ConsoleColor.Green;
             System.Console.Write(Environment.NewLine);
             System.Console.WriteLine("Pressione ENTER para voltar ao Menu Anterior!");
             Console.ReadLine();
@@ -28,7 +31,7 @@ public static class ListarTodosScreen
 
             Console.ForegroundColor = ConsoleColor.Green;
 
-            System.Console.WriteLine("=======================================================================================================================");
+            System.Console.WriteLine("==================================================================================");
             
         }
         System.Console.Write(Environment.NewLine);

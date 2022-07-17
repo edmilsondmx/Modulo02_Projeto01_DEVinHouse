@@ -69,7 +69,7 @@ public static class CadastrarCaminhoneteScreen
 
         Console.Clear();
         System.Console.WriteLine("Caminhonete Cadastrado com sucesso!");
-        System.Console.WriteLine("=================================================================================");
+        System.Console.WriteLine("==================================================================================");
         foreach (var veiculo in repository)
         {
             if(veiculo.Placa == placaTrim)
@@ -77,7 +77,7 @@ public static class CadastrarCaminhoneteScreen
                 
         }
         Console.ForegroundColor = ConsoleColor.Green;
-        System.Console.WriteLine("=================================================================================");
+        System.Console.WriteLine("==================================================================================");
 
         System.Console.Write(Environment.NewLine);
         System.Console.WriteLine("Pressione ENTER para voltar ao Menu Anterior");
