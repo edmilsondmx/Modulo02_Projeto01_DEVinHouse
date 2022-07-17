@@ -17,6 +17,7 @@ Projeto Avaliativo 01 - Módulo 02 -  Desenvolvido para o curso DEVinHouse - Tur
     <li>O sistema segue o Roteiro da Aplicação conforme passado.</li>
     <li>O desenvolvimento das mensagens de saída são mostradas no console a cada informação inserida por um usuário.</li>
     <li>Contem menus intuitivos no console, para fácil uso.</li>
+    <li>Utilização de Herança, Polimorfismo e Encapsulamento.</li>
     <li>Criação de menu principal, menu de cadastro, me de listagens.</li>
     <li>Criação de Superclasse e subclasses com heranças.</li>
     <li>Criação de repositório para salvar novos cadastros.</li>
@@ -57,6 +58,8 @@ $dotnet run --project .\DevCarConsole\
 
 #Pelo Visual Studio abra o terminal e execute o comando:
 
+$dotnet restore
+$dotnet build
 $dotnet run
 
 ```
