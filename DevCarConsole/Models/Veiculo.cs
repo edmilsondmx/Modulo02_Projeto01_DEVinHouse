@@ -13,8 +13,7 @@ public class Veiculo
     public decimal ValorVenda = 0;
 
     public DateTime DataVenda { get; private set; }
-
-
+    
     public Veiculo(DateTime dataFabricacao, string nome, string placa, decimal valor, string cor)
     {
         DataFabricacao = dataFabricacao;
