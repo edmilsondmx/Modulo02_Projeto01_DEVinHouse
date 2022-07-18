@@ -1,4 +1,3 @@
-using System.Text.RegularExpressions;
 using DevCarConsole.Models;
 using DevCarConsole.Validations;
 
@@ -8,8 +7,8 @@ public class AlterarInformacoesScreen
 {
     public static void Iniciar(IList<Veiculo> repository)
     {   
-        var veiculosdisponiveis = repository.Where(veiculo => veiculo.CpfComprador == null).ToList();
-        if(veiculosdisponiveis.Count == 0)
+        var veiculosDisponiveis = repository.Where(veiculo => veiculo.CpfComprador == null).ToList();
+        if(veiculosDisponiveis.Count == 0)
         {
             Console.Clear();
             System.Console.WriteLine("ATENÇÂO");

@@ -10,7 +10,7 @@ public static class ListarVendidoCategoria
     {
         Console.Clear();
         System.Console.WriteLine("Todas Motos / Triciclos Vendidos");
-        System.Console.WriteLine("=======================");
+        System.Console.WriteLine("================================");
         System.Console.Write(Environment.NewLine);
 
         var motos = repository.Where(veiculo => veiculo.Categoria == "Moto / Triciclo").ToList();
@@ -35,7 +35,7 @@ public static class ListarVendidoCategoria
     {
         Console.Clear();
         System.Console.WriteLine("Todos Carros de Passeio Vendidos");
-        System.Console.WriteLine("=======================");
+        System.Console.WriteLine("================================");
         System.Console.Write(Environment.NewLine);
 
         var carrosPasseio = repository.Where(veiculo => veiculo.Categoria == "Carro Passeio").ToList();
@@ -60,7 +60,7 @@ public static class ListarVendidoCategoria
     {
         Console.Clear();
         System.Console.WriteLine("Todas Caminhonetes Vendidas");
-        System.Console.WriteLine("=======================");
+        System.Console.WriteLine("===========================");
         System.Console.Write(Environment.NewLine);
 
         var caminhonetes = repository.Where(veiculo => veiculo.Categoria == "Caminhonete").ToList();

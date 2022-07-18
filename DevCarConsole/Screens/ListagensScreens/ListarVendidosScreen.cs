@@ -1,6 +1,7 @@
 using System.Linq;
 using DevCarConsole.Models;
 using DevCarConsole.Reports;
+using DevCarConsole.Validations;
 
 namespace DevCarConsole.Screens.ListagensScreens;
 
@@ -8,20 +9,30 @@ public class ListarVendidosScreen
 {
     public static void Iniciar(IList<Veiculo> repository)
     {
+        var veiculosVendidos = repository.Where(veiculo => veiculo.CpfComprador != null).ToList();
+        if(veiculosVendidos.Count == 0)
+        {
+            Console.Clear();
+            System.Console.WriteLine("ATENÇÂO");
+            System.Console.WriteLine("=======");
+
+            Console.ForegroundColor = ConsoleColor.White;
+            System.Console.WriteLine("Não há Veículos Vendidos na Lista!");
+            
+            Console.ForegroundColor = ConsoleColor.Green;
+            System.Console.Write(Environment.NewLine);
+            System.Console.WriteLine("Pressione ENTER para voltar ao Menu Anterior!");
+            Console.ReadLine();
+            MenuScreen.Iniciar(repository);
+        }
+
         Console.Clear();
         MenuScreen.Bordas();
         Opcoes();
 
-        ushort opcoes;
-        try
-        {
-            opcoes = ushort.Parse(Console.ReadLine()!);
-        }
-        catch(Exception ex)
-        {
-            System.Console.WriteLine(Environment.NewLine);
-            throw new Exception($"Formato de dado inválido. Escolha uma das opções.{ex.Message}");
-        }
+        int qtdOpcoes = 7;
+        ushort opcoes = ValidarOpcoes.ValidarOpcoesMenus(qtdOpcoes);
+      
         switch (opcoes)
         {
             
@@ -64,7 +75,7 @@ public class ListarVendidosScreen
         Console.SetCursorPosition(2, 11);
         System.Console.WriteLine("0 - Voltar ao Menu Principal");
 
-        Console.SetCursorPosition(2, 12);
+        Console.SetCursorPosition(2, 13);
         System.Console.Write("Digite a opção: ");
 
     }

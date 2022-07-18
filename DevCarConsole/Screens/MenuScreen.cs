@@ -1,6 +1,7 @@
 using DevCarConsole.Models;
 using DevCarConsole.Reports;
 using DevCarConsole.Screens.ListagensScreens;
+using DevCarConsole.Validations;
 
 namespace DevCarConsole.Screens;
 
@@ -12,16 +13,8 @@ public static class MenuScreen
         Bordas();
         Opcoes();
 
-        ushort opcoes;
-        try
-        {
-            opcoes = ushort.Parse(Console.ReadLine()!);
-        }
-        catch(Exception ex)
-        {
-            System.Console.WriteLine(Environment.NewLine);
-            throw new Exception($"Formato de dado inválido. Escolha uma das opções.{ex.Message}");
-        }
+        int qtdOpcoes = 7;
+        ushort opcoes = ValidarOpcoes.ValidarOpcoesMenus(qtdOpcoes);
         
         switch (opcoes)
         {
